@@ -1,0 +1,28 @@
+Function: main/0
+Constants: None, "Enter your name: ", "Enter your age: ", ", a year from now you will be", 1, "years old."
+Locals: name, age
+Globals: input, int, print
+BEGIN
+          LOAD_GLOBAL                    0
+          LOAD_CONST                     1
+          CALL_FUNCTION                  1
+          STORE_FAST                     0
+          LOAD_GLOBAL                    1
+          LOAD_GLOBAL                    0
+          LOAD_CONST                     2
+          CALL_FUNCTION                  1
+          CALL_FUNCTION                  1
+          STORE_FAST                     1
+          LOAD_GLOBAL                    2
+          LOAD_FAST                      0
+          LOAD_CONST                     3
+          BINARY_ADD
+          LOAD_FAST                      1
+          LOAD_CONST                     4
+          BINARY_ADD
+          LOAD_CONST                     5
+          CALL_FUNCTION                  3
+          POP_TOP
+          LOAD_CONST                     0
+          RETURN_VALUE
+END

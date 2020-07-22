@@ -1,0 +1,116 @@
+Function: main/0
+Constants: None, "Enter a number: ", "/", "="
+Locals: x, y, z, ex
+Globals: float, input, print, Exception
+BEGIN
+
+; Start of the `try` block.
+
+; A negative number on the block stack refers to an exception handler
+; while a positive value refers to a loop exit point.
+
+; Pushes in the block stack the negative address of the first
+; instruction of the exception handler’s code.
+
+          SETUP_EXCEPT             label00
+          LOAD_GLOBAL                    0
+          LOAD_GLOBAL                    1
+          LOAD_CONST                     1
+          CALL_FUNCTION                  1
+          CALL_FUNCTION                  1
+          STORE_FAST                     0
+          LOAD_GLOBAL                    0
+          LOAD_GLOBAL                    1
+          LOAD_CONST                     1
+          CALL_FUNCTION                  1
+          CALL_FUNCTION                  1
+          STORE_FAST                     1
+          LOAD_FAST                      0
+          LOAD_FAST                      1
+          BINARY_TRUE_DIVIDE
+          STORE_FAST                     2
+          LOAD_GLOBAL                    2
+          LOAD_FAST                      0
+          LOAD_CONST                     2
+          LOAD_FAST                      1
+          LOAD_CONST                     3
+          LOAD_FAST                      2
+          CALL_FUNCTION                  5
+
+; Last instruction of the `try` block.
+
+          POP_TOP
+
+; Pop the address pushed by the `SETUP_EXCEPT` instruction.
+; Finish of the `try` block.
+
+          POP_BLOCK
+
+; Jumps past the end of the `except` block.
+
+          JUMP_FORWARD             label03
+
+; The `exception` block begins at `label00`.
+
+; The traceback and two copies of the exception are pushed onto the
+; operand stack prior to execute next instruction.
+
+; `DUP_TOP` duplicates the exception object on the top of the operand
+; stack.
+
+label00:  DUP_TOP
+          LOAD_GLOBAL                    3
+
+; See § 9.9 from textbook.
+          COMPARE_OP                    10
+
+          POP_JUMP_IF_FALSE        label02
+          POP_TOP
+          STORE_FAST                     3
+          POP_TOP
+
+; Required for handling nested exceptions. Push to the block stack.
+
+          SETUP_FINALLY            label01
+
+; Star to print the exception.
+
+          LOAD_GLOBAL                    2
+          LOAD_FAST                      3
+          CALL_FUNCTION                  1
+
+; End of the exception.
+          POP_TOP
+
+; Pops the exit address that was pushed by the `SETUP_FINALLY`
+; instruction.
+
+          POP_BLOCK
+
+; Pops the block stack address for the exception handler exit address.
+
+          POP_EXCEPT
+          LOAD_CONST                     0
+
+label01:  LOAD_CONST                     0
+          STORE_FAST                     3
+
+; This instruction does nothing in JCoCo because instructions are
+; handled different from Python.
+
+          DELETE_FAST                    3
+
+; Detects the exception was handled and if not, it re-throws the
+; exception for some outer exception handling block (nested
+; exceptions).
+
+          END_FINALLY
+
+          JUMP_FORWARD             label03
+
+; End of the `except` block.
+
+label02:  END_FINALLY
+label03:  LOAD_CONST                     0
+          RETURN_VALUE
+END

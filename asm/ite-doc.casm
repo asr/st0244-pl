@@ -1,0 +1,44 @@
+Function: main/0
+Constants: None, 5, 6
+Locals: x, y, z
+Globals: print
+BEGIN
+          LOAD_CONST                     1
+          STORE_FAST                     0
+          LOAD_CONST                     2
+          STORE_FAST                     1
+          LOAD_FAST                      0
+          LOAD_FAST                      1
+
+; Performs Boolean operation. Both TOS1 and TOS are popped from the
+; operand stack and the Boolean result is left on the operand
+; stack. Argument:
+; 0 means TOS1 < TOS
+; 1 means TOS1 <= TOS
+; 2 means TOS1 = TOS
+; 3 means TOS1 != TOS
+; 4 means TOS1 > TOS
+
+          COMPARE_OP 4
+
+; Jumps to the target location if TOS is false. Pops the top value from
+; the operand stack.
+
+          POP_JUMP_IF_FALSE        label00
+
+          LOAD_FAST                      0
+          STORE_FAST                     2
+
+; Jumps to the target location.
+
+          JUMP_FORWARD             label01
+
+label00:  LOAD_FAST                      1
+          STORE_FAST                     2
+label01:  LOAD_GLOBAL                    0
+          LOAD_FAST                      2
+          CALL_FUNCTION                  1
+          POP_TOP
+          LOAD_CONST                     0
+          RETURN_VALUE
+END

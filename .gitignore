@@ -1,0 +1,9 @@
+*.class
+*.hi
+*.o
+__pycache__/
+a.out
+fp/factorial/fact*
+fibonacci
+quickcheck
+side-effects1

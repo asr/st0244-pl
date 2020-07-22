@@ -1,0 +1,46 @@
+Function: main/0
+Constants: None, 8, 1, "Fib(", ") is"
+Locals: f, i, j, n, tmp
+Globals: print, str
+BEGIN
+          LOAD_CONST                     1
+          STORE_FAST                     0
+          LOAD_CONST                     2
+          STORE_FAST                     1
+          LOAD_CONST                     2
+          STORE_FAST                     2
+          LOAD_CONST                     2
+          STORE_FAST                     3
+          SETUP_LOOP               label02
+label00:  LOAD_FAST                      3
+          LOAD_FAST                      0
+          COMPARE_OP                     0
+          POP_JUMP_IF_FALSE        label01
+          LOAD_FAST                      3
+          LOAD_CONST                     2
+          BINARY_ADD
+          STORE_FAST                     3
+          LOAD_FAST                      2
+          STORE_FAST                     4
+          LOAD_FAST                      2
+          LOAD_FAST                      1
+          BINARY_ADD
+          STORE_FAST                     2
+          LOAD_FAST                      4
+          STORE_FAST                     1
+          JUMP_ABSOLUTE            label00
+label01:  POP_BLOCK
+label02:  LOAD_GLOBAL                    0
+          LOAD_CONST                     3
+          LOAD_GLOBAL                    1
+          LOAD_FAST                      3
+          CALL_FUNCTION                  1
+          BINARY_ADD
+          LOAD_CONST                     4
+          BINARY_ADD
+          LOAD_FAST                      1
+          CALL_FUNCTION                  2
+          POP_TOP
+          LOAD_CONST                     0
+          RETURN_VALUE
+END
