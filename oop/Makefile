@@ -5,9 +5,9 @@ else
 	CXX := g++
 endif
 
-CXX_FLAGS   := -Wall -Wextra -Werror
-CXX11_FLAGS := $(CXX_FLAGS) -std=c++11
-JAVA_FLAGS  := -Xlint -Werror
+CXXFLAGS   := -Wall -Wextra -Werror
+CXX11FLAGS := $(CXXFLAGS) -std=c++11
+JAVAFLAGS  := -Xlint -Werror
 
 .DEFAULT_GOAL := all
 
@@ -22,22 +22,22 @@ all : BoxingUnboxing \
 	$(MAKE) -C templates
 
 BoxingUnboxing : BoxingUnboxing.java
-	javac $(JAVA_FLAGS) $<
+	javac $(JAVAFLAGS) $<
 
 exceptions : exceptions.cpp
-	$(CXX) $(CXX11_FLAGS) $<
+	$(CXX) $(CXX11FLAGS) $<
 
 function-overloading : function-overloading.cpp
-	$(CXX) $(CXX_FLAGS) $<
+	$(CXX) $(CXXFLAGS) $<
 
 pointers-and-references : pointers-and-references.cpp
-	$(CXX) $(CXX11_FLAGS) $<
+	$(CXX) $(CXX11FLAGS) $<
 
 polymorphism : polymorphism.cpp
-	$(CXX) $(CXX_FLAGS) $<
+	$(CXX) $(CXXFLAGS) $<
 
 signal-handling : signal-handling.cpp
-	$(CXX) $(CXX_FLAGS) $<
+	$(CXX) $(CXXFLAGS) $<
 
 clean :
 	rm -f a.out

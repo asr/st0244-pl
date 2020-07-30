@@ -5,9 +5,9 @@ else
 	CXX := g++
 endif
 
-CXX_FLAGS   := -Wall -Wextra
-CXX11_FLAGS := -Wall -Wextra -std=c++11
-GHC_FLAGS   := -Wall -Werror
+CXXFLAGS   := -Wall -Wextra
+CXX11FLAGS := -Wall -Wextra -std=c++11
+GHCFLAGS  := -Wall -Werror
 
 .DEFAULT_GOAL := all
 
@@ -18,10 +18,10 @@ all : constexpr \
       quickcheck-dynamic \
       side-effects1 \
       side-effects2
-	ghc $(GHC_FLAGS) AST.hs
-	ghc $(GHC_FLAGS) HigherOrder.hs
-	ghc $(GHC_FLAGS) LetWhere.hs
-	ghc $(GHC_FLAGS) Tuples.hs
+	ghc $(GHCFLAGS) AST.hs
+	ghc $(GHCFLAGS) HigherOrder.hs
+	ghc $(GHCFLAGS) LetWhere.hs
+	ghc $(GHCFLAGS) Tuples.hs
 	$(MAKE) -C factorial
 
 side-effects1 : side-effects1.pas
@@ -31,7 +31,7 @@ side-effects2 : side-effects2.cpp
 	$(CXX) $<
 
 constexpr : constexpr.cpp
-	$(CXX) $(CXX11_FLAGS) $<
+	$(CXX) $(CXX11FLAGS) $<
 
 fibonacci-static : Fibonacci.hs
 	ghc -Wall -o fibonacci $<
@@ -40,13 +40,13 @@ fibonacci-dynamic : Fibonacci.hs
 	ghc -dynamic -Wall -o fibonacci $<
 
 quickcheck-static : QuickCheck.hs
-	ghc $(GHC_FLAGS) -o quickcheck $<
+	ghc $(GHCFLAGS) -o quickcheck $<
 
 quickcheck-dynamic : QuickCheck.hs
 	ghc -dynamic \
             -package QuickCheck \
             -package quickcheck-instances \
-            $(GHC_FLAGS) -o quickcheck $<
+            $(GHCFLAGS) -o quickcheck $<
 
 clean :
 	rm -f *.hi
