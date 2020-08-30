@@ -1,11 +1,22 @@
 
-ifneq ("$(wildcard /usr/bin/g++-9)","")
-	CXX := g++-9
-else
-	CXX := g++
+# You can define "local" variables in the `../mk/config.mk` file which
+# is .gitignored.
+ifneq ($(wildcard ../mk/config.mk),)
+include ../mk/config.mk
 endif
 
-CXXFLAGS   := -Wall -Wextra
+# We need the auxiliar variable `CXX_AUX` because `CXX` is predefined
+# by `make`.
+ifdef CXX_AUX
+CXX := $(CXX_AUX)
+endif
+
+# We need the auxiliar variable `CXXFLAGS_AUX` because `CXXFLAGS` is
+# predefined by `make`.
+ifdef CXXFLAGS_AUX
+CXXFLAGS := $(CXXFLAGS_AUX)
+endif
+
 CXX11FLAGS := -Wall -Wextra -std=c++11
 GHCFLAGS  := -Wall -Werror
 

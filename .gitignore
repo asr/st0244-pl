@@ -5,5 +5,6 @@ __pycache__/
 a.out
 fp/factorial/fact*
 fibonacci
+mk/config.mk
 quickcheck
 side-effects1

@@ -41,6 +41,18 @@ JCoCo output when using the `-v` option, e.g.
     $ coco -v file.casm
     ```
 
+### Local compilation options
+
+You can create the `.gitignored` file `mk/config.mk` for defining your
+local compilation options. See `Makefile`'s for details. An example of
+this file is the following:
+
+```bash
+$ cat mk/config.mk
+CXX_AUX      := g++-9
+CXXFLAGS_AUX := -Wall -Wextra -Werror
+```
+
 ### Tested with
 
 * C++ files were tested with
