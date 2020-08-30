@@ -11,10 +11,10 @@ CXXFLAGS := -Wall -Wextra -Werror -std=c++11
 all : vector1 \
       vector2
 
-vector1 : vector1.cpp
+vector1 : vector1.cc
 	$(CXX) $(CXXFLAGS) $<
 
-vector2 : vector2.cpp
+vector2 : vector2.cc
 	$(CXX) $(CXXFLAGS) $<
 
 clean :

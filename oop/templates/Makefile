@@ -12,13 +12,13 @@ all : vector-structure \
       vector-class \
       vector-template
 
-vector-structure : vector-structure.cpp
+vector-structure : vector-structure.cc
 	$(CXX) $(CXXFLAGS) $<
 
-vector-class : vector-class.cpp
+vector-class : vector-class.cc
 	$(CXX) $(CXXFLAGS) $<
 
-vector-template : vector-template.cpp
+vector-template : vector-template.cc
 	$(CXX) $(CXXFLAGS) $<
 
 clean :

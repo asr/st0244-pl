@@ -24,19 +24,19 @@ all : BoxingUnboxing \
 BoxingUnboxing : BoxingUnboxing.java
 	javac $(JAVAFLAGS) $<
 
-exceptions : exceptions.cpp
+exceptions : exceptions.cc
 	$(CXX) $(CXX11FLAGS) $<
 
-function-overloading : function-overloading.cpp
+function-overloading : function-overloading.cc
 	$(CXX) $(CXXFLAGS) $<
 
-pointers-and-references : pointers-and-references.cpp
+pointers-and-references : pointers-and-references.cc
 	$(CXX) $(CXX11FLAGS) $<
 
-polymorphism : polymorphism.cpp
+polymorphism : polymorphism.cc
 	$(CXX) $(CXXFLAGS) $<
 
-signal-handling : signal-handling.cpp
+signal-handling : signal-handling.cc
 	$(CXX) $(CXXFLAGS) $<
 
 clean :

@@ -27,10 +27,10 @@ all : constexpr \
 side-effects1 : side-effects1.pas
 	fpc -vew $<
 
-side-effects2 : side-effects2.cpp
+side-effects2 : side-effects2.cc
 	$(CXX) $<
 
-constexpr : constexpr.cpp
+constexpr : constexpr.cc
 	$(CXX) $(CXX11FLAGS) $<
 
 fibonacci-static : Fibonacci.hs
