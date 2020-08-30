@@ -49,7 +49,7 @@ this file is the following:
 
 ```bash
 $ cat mk/config.mk
-CXX_AUX      := g++-9
+CXX_AUX      := g++-10.2.0
 CXXFLAGS_AUX := -Wall -Wextra -Werror
 ```
 
@@ -58,8 +58,8 @@ CXXFLAGS_AUX := -Wall -Wextra -Werror
 * C++ files were tested with
 
     ```bash
-    $ g++-9 --version
-    g++-9 (Ubuntu 9.3.0-10ubuntu2~16.04) 9.3.0
+    $ g++-10.2.0 --version
+    g++-10.2.0 (GCC) 10.2.0
     ```
 
 * Haskell files were tested with
