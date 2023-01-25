@@ -1,13 +1,13 @@
-# 
+#
 # File:   disassembler.py
 # Author: Kent D. Lee
 # (c) 2013
 # Created on February 12, 2013, 10:58 PM
-# Description: This program, when called on a function disassembles it 
+# Description: This program, when called on a function disassembles it
 # producing a Python Virtual Machine description of the code. The format
-# That this file produces corresponds to the grammar supported by the 
+# That this file produces corresponds to the grammar supported by the
 # CoCoVM virtual machine implementation that Kent developed for a
-# course on Programming Languages.  
+# course on Programming Languages.
 import dis
 import types
 import sys
@@ -18,7 +18,7 @@ if str(sys.version)[0:3] != "3.2":
     print("* WARNING: disassembler.py should be run using Python 3.2  *")
     print("*          You are running Python", str(sys.version)[0:3],(" "*20),"*")
     print("*          The disassembly may not be correct.             *")
-    print("************************************************************")    
+    print("************************************************************")
 
 def f(x,y):
     def g(z):
@@ -41,7 +41,7 @@ def get_code_object(obj, compilation_mode="exec"):
         #print(dir(obj.__class__))
         raise TypeError("get_code_object() can not handle '%s' objects" %
                         (type(obj).__name__,))
-    
+
 def disassemble(obj, indent=""):
     if type(obj) == type(type):
         #print(obj.__base__)
@@ -58,8 +58,8 @@ def disassemble(obj, indent=""):
                 disassemble(obj.__dict__[x],indent+"    ")
             #else:
             #    print(x,obj.__dict__[x])
-            #    print(type(obj.__dict__[x]))	
-	
+            #    print(type(obj.__dict__[x]))
+
 
         print(indent+"END")
     else:
@@ -79,8 +79,8 @@ def disassemble(obj, indent=""):
             if type(val) == type(code): # meaning val is a code object
                 newindent = indent+"    "
                 disassemble(val,indent=newindent)
-                
-        if len(theConsts) > 0:  
+
+        if len(theConsts) > 0:
             line = indent+"Constants: "
             for val in theConsts:
                 if type(val) == str:
@@ -89,37 +89,37 @@ def disassemble(obj, indent=""):
                     line+="code("+val.co_name+"), "
                 else:
                     line+=str(val)+", "
-            
+
             print(line[:-2])
-            
+
         if len(theLocals) > 0:
             line = indent+"Locals: "
             for val in theLocals:
                 line+=val+", "
-            
-            print(line[:-2])  
-            
+
+            print(line[:-2])
+
         if len(theFreeVars) > 0:
             line = indent+"FreeVars: "
             for val in theFreeVars:
                 line+=val+", "
-            
-            print(line[:-2])     
-                
+
+            print(line[:-2])
+
         if len(theCellVars) > 0:
             line = indent+"CellVars: "
             for val in theCellVars:
                 line+=val+", "
-            
-            print(line[:-2]) 
-                
+
+            print(line[:-2])
+
         if len(theGlobals) > 0:
             line = indent+"Globals: "
             for val in theGlobals:
                 line+=val+", "
-            
-            print(line[:-2])    
-            
+
+            print(line[:-2])
+
         print(indent+"BEGIN")
         oldstdout = sys.stdout
         sys.stdout = mystdout = StringIO()
@@ -127,7 +127,7 @@ def disassemble(obj, indent=""):
         sys.stdout = oldstdout
         instructions = mystdout.getvalue().split("\n")
         label = 0
-        
+
         #first find the labelled line in the file and mark them.
         targets = {}
         for line in instructions:
@@ -136,7 +136,7 @@ def disassemble(obj, indent=""):
                 address = lst[0]
                 targets[address] = label
                 label+=1
-                
+
         # Now generate the output
         for line in instructions:
             t = line[10:].split()
@@ -147,14 +147,14 @@ def disassemble(obj, indent=""):
                     operand = t[2]
                 else:
                     operand = ""
-                
-        
+
+
                 if ">>" in line:
                     label = targets[address]
                     labelString = "label%02d"%label+":  "
                 else:
                     labelString = " "*10
-                    
+
                 if mnemonic in ["SETUP_LOOP","JUMP_FORWARD","FOR_ITER","SETUP_EXCEPT","SETUP_FINALLY"] :
                     location = str(int(address) + int(operand) + 3)
                     inst = labelString + mnemonic + " "*(25-len(mnemonic)) + "label%02d"%targets[location]
@@ -166,13 +166,13 @@ def disassemble(obj, indent=""):
                 elif len(operand) > 0:
                     inst = labelString + mnemonic + " "*(25-len(mnemonic)) + "%7d"%int(operand)
                 else:
-                    inst = labelString + mnemonic + " "*(25-len(mnemonic)) 
-            
+                    inst = labelString + mnemonic + " "*(25-len(mnemonic))
+
                 print(indent+inst)
         print(indent+"END")
-    
+
 def main():
     disassemble(f)
-    
+
 if __name__ == "__main__":
     main()
