@@ -9,8 +9,7 @@ public class BoxingUnboxing {
     int a, b;
 
     // Old way via wrapper and unwrapping.
-    @SuppressWarnings("deprecation")
-      Integer y = new Integer(x); // Wrapping
+    Integer y = new Integer(x); // Wrapping
     intList.add(y);
     a = intList.get(0).intValue(); // Unwrapping
     System.out.println("Value via wrapper and unwrapping: " + a);

@@ -91,14 +91,14 @@ CXXFLAGS_AUX := -Wall -Wextra -Werror
     The Glorious Glasgow Haskell Compilation System, version 8.10.1
     ```
 
-* Java files were tested with
+* JCoCo and Java files were tested with
 
     ```bash
     $ javac -version
-    javac 14
+    javac 19.0.1
 
     $ java -version
-    openjdk version "14" 2020-03-17
+    openjdk 19.0.1 2022-10-18
     ```
 
 * Prolog files were tested with
