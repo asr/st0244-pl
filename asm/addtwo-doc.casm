@@ -1,4 +1,4 @@
-; TOS = top-of-stack
+; TOS means Top-Of-Stack
 
 ; The function disassembled and the number of its formal parameters.
 Function: main/0
@@ -13,19 +13,25 @@ Locals: x, y, z
 Globals: print
 
 BEGIN
-; Pushes Constants[i] onto the operand stack.
+; Pushes Constants[1] onto the operand stack.
 
           LOAD_CONST                     1
 
-; Stores the top of operand stack into Locals[i]. Pops the top of
+; Stores the top of operand stack into Locals[0]. Pops the top of
 ; operand stack.
 
           STORE_FAST                     0
 
+; Pushes Constants[2] onto the operand stack.
+
           LOAD_CONST                     2
+
+; Stores the top of operand stack into Locals[1]. Pops the top of
+; operand stack.
+
           STORE_FAST                     1
 
-; Pushes Locals[i] onto the operand stack.
+; Pushes Locals[0] and Locals[1] onto the operand stack.
 
           LOAD_FAST                      0
 
@@ -35,15 +41,18 @@ BEGIN
 
           BINARY_ADD
 
-          STORE_FAST                     2
+; Stores the top of operand stack into Locals[2]. Pops the top of
+; operand stack.
 
-; Pushes Globals[i] onto the operand stack.
+         STORE_FAST                     2
+
+; Pushes Globals[0] and Locals[2] onto the operand stack.
 
           LOAD_GLOBAL                    0
 
           LOAD_FAST                      2
 
-; Calls a function with i positional parameters.
+; Calls a function with one positional parameter.
 
           CALL_FUNCTION                  1
 
@@ -51,7 +60,9 @@ BEGIN
 
           POP_TOP
 
-          LOAD_CONST                     0
+; Pushes Constants[0] onto the operand stack.
+
+         LOAD_CONST                     0
 
 ; Returns with TOS to the caller of the function.
 
