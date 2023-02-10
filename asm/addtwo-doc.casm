@@ -52,7 +52,10 @@ BEGIN
 
           LOAD_FAST                      2
 
-; Calls a function with one positional parameter.
+; Calls a function with one positional parameter. Pops the positional
+; parameter and the function from the operand stack. The result of the
+; function is pushed on the operand stack (the function `print`
+; returns `None`).
 
           CALL_FUNCTION                  1
 
@@ -64,7 +67,7 @@ BEGIN
 
          LOAD_CONST                     0
 
-; Returns with TOS to the caller of the function.
+; Pops the TOS and returns TOS to the caller of the function.
 
-          RETURN_VALUE
+         RETURN_VALUE
 END
