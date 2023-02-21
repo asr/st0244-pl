@@ -9,8 +9,8 @@ def main():
     while n < f:
         n   = n + 1
         tmp = j
-        j   = j+i
-        i = tmp
+        j   = j + i
+        i   = tmp
     print("Fib(" + str(n) + ") is", i)
 
 if len(sys.argv) == 1:
