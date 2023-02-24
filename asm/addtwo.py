@@ -1,6 +1,5 @@
-# The dissambler library is available from
-# https://kentdlee.github.io/JCoCoPages/_build/html/index.html.
-from disassembler import *
+
+import disassembler
 import sys
 
 def main():
@@ -12,4 +11,4 @@ def main():
 if len(sys.argv) == 1:
     main()
 else:
-    disassemble(main)
+    disassembler.disassemble(main)
