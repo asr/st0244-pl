@@ -33,7 +33,7 @@ all : BoxingUnboxing \
 	$(MAKE) -C templates
 
 BoxingUnboxing : BoxingUnboxing.java
-	javac $(JAVAFLAGS) $<
+	javac $<
 
 exceptions : exceptions.cc
 	$(CXX) $(CXX11FLAGS) $<

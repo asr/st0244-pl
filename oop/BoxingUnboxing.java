@@ -9,6 +9,8 @@ public class BoxingUnboxing {
     int a, b;
 
     // Old way via wrapper and unwrapping.
+    // Generate the warning:
+    // [removal] Integer(int) in Integer has been deprecated and marked for removal
     Integer y = new Integer(x); // Wrapping
     intList.add(y);
     a = intList.get(0).intValue(); // Unwrapping
