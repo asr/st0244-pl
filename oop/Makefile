@@ -17,8 +17,7 @@ ifdef CXXFLAGS_AUX
 CXXFLAGS := $(CXXFLAGS_AUX)
 endif
 
-CXX11FLAGS := $(CXXFLAGS) -std=c++11
-JAVAFLAGS  := -Xlint -Werror
+JAVAFLAGS := -Xlint -Werror
 
 .DEFAULT_GOAL := all
 
@@ -36,13 +35,13 @@ BoxingUnboxing : BoxingUnboxing.java
 	javac $<
 
 exceptions : exceptions.cc
-	$(CXX) $(CXX11FLAGS) $<
+	$(CXX) $(CXXFLAGS) $<
 
 function-overloading : function-overloading.cc
 	$(CXX) $(CXXFLAGS) $<
 
 pointers-and-references : pointers-and-references.cc
-	$(CXX) $(CXX11FLAGS) $<
+	$(CXX) $(CXXFLAGS) $<
 
 polymorphism : polymorphism.cc
 	$(CXX) $(CXXFLAGS) $<

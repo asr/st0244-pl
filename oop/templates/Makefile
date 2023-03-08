@@ -17,8 +17,6 @@ ifdef CXXFLAGS_AUX
 CXXFLAGS := $(CXXFLAGS_AUX)
 endif
 
-CXXFLAGS := $(CXXFLAGS) -std=c++11
-
 .DEFAULT_GOAL := all
 
 all : vector-structure \

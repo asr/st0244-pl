@@ -71,8 +71,8 @@ this file is the following:
 
 ```bash
 $ cat mk/config.mk
-CXX_AUX      := g++-10.2.0
-CXXFLAGS_AUX := -Wall -Wextra -Werror
+CXX_AUX      := g++-12
+CXXFLAGS_AUX := -Wall -Wextra -Werror -std=c++23
 ```
 
 ### Tested with
@@ -80,8 +80,8 @@ CXXFLAGS_AUX := -Wall -Wextra -Werror
 * C++ files were tested with
 
     ```bash
-    $ g++-10.2.0 --version
-    g++-10.2.0 (GCC) 10.2.0
+    $ g++-12 --version
+    g++-12 (Ubuntu 12.1.0-2ubuntu1~22.04) 12.1.0
     ```
 
 * Haskell files were tested with
