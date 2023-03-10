@@ -1,7 +1,7 @@
-// Adapted from "Stroustrup, Bjarne (2018). A Tour of C++. 2nd
-// ed. Addison-Wesley".
+// Adapted from "Stroustrup, Bjarne (2019). A Tour of C++. 2nd
+// ed. Third printing. Addison-Wesley".
 
-// Fisrt version of the class `Vector`
+// Second version of the class `Vector`.
 
 #include <iostream>
 
@@ -19,8 +19,10 @@ private:
 public:
   // Constructor.
   // The `new` operator allocates memory from the heap.
-  Vector (int s) : elem {new double[s]}, sz {s}
-  {
+  Vector (int s) {
+    elem = new double[s];
+    sz = s;
+
     // Initialize elements.
     for (int i = 0; i != s; i++)
       elem[i] = 0;
@@ -61,9 +63,10 @@ readAndSum (const int s)
 } // The vector `v` is detroyed here.
 
 int
-main()
+main ()
 {
   const double r = readAndSum (3);
-
   cout << "The sum is: " << r << endl ;
+
+  return 0;
 }
