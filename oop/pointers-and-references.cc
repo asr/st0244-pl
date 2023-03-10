@@ -52,7 +52,7 @@ fn2 ()
   //
   // Make figure in the whiteboard.
   p = &v[2];
-  cout << (void*) p << endl;
+  cout << (void *) p << endl;
 
   // In expressions, a prefix unary `*` means "contents of". The
   // content of `p` is the third element of `v`.
@@ -76,9 +76,9 @@ fn2 ()
   //
   // Why?
 
-  // What is the ouput of `(void*) (p + 10)`?
+  // What is the ouput of `(void *) (p + 10)`?
   //
-  // cout << (void*) (p + 10) << endl;
+  // cout << (void *) (p + 10) << endl;
   //
   // Why?
 }
@@ -117,7 +117,7 @@ fn3 ()
 
   // Pointer arithmetic.
   // pi++;
-  // cout << (void*) pi << endl;
+  // cout << (void *) pi << endl;
 
   // No reference arithmetic.
   // ri++;
