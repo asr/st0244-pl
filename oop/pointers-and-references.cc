@@ -1,6 +1,9 @@
 
-// Based on "Stroustrup, Bjarne (2018). A Tour of C++. 2nd
-// ed. Addison-Wesley" and
+// Based on "Stroustrup, Bjarne (2019). A Tour of C++. 2nd ed. Third
+// printing. Addison-Wesley"
+//
+// and
+//
 // https://www.embedded.com/electronics-blogs/programming-pointers/4024641/An-Introduction-to-References
 
 #include <iostream>
@@ -14,7 +17,7 @@ void
 fn1 ()
 {
   // Source array. In declarations, `[]` means "array of".
-  int v1[10] {0,1,2,3,4,5,6,7,8,9};
+  int v1[10] = {0,1,2,3,4,5,6,7,8,9};
 
   // Target array.
   int v2[10];
@@ -38,7 +41,7 @@ void
 fn2 ()
 {
   // Array of characters.
-  char v[6] {"aeiou"};
+  char v[6] = "aeiou";
 
   // In declarations, `*` means "pointer to". The variable `p` is a
   // pointer to character.
@@ -53,7 +56,9 @@ fn2 ()
 
   // In expressions, a prefix unary `*` means "contents of". The
   // content of `p` is the third element of `v`.
-  char x = *p;
+  char x;
+
+  x = *p;
   cout << x << endl;
 
   // What is the ouput of `p`?
@@ -70,6 +75,12 @@ fn2 ()
   // cout << p + 10 << endl;
   //
   // Why?
+
+  // What is the ouput of `(void*) (p + 10)`?
+  //
+  // cout << (void*) (p + 10) << endl;
+  //
+  // Why?
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -79,18 +90,20 @@ fn2 ()
 "A reference is similar to a pointer, except that you don’t need to
 use a prefix * to access the value referred to by the reference. Also,
 a reference cannot be made to refer to a different object after its
-initialization." (Stroustrup, 2018, p. 12)
+initialization." (Stroustrup, 2019, p. 12)
 */
 
 void
 fn3 ()
 {
-  int i {3};
-  int* pi {&i};
+  int i = 3;
+  int* pi;
+
+  pi = &i;
 
   // In a declaration, the unary suffix & means "reference to". The
   // variable `ri` is a reference to `int` referring the variable `i`.
-  int& ri {i};
+  int& ri = i;
 
   cout << i << endl << *pi << endl << ri << endl;
 
@@ -118,7 +131,7 @@ fn3 ()
 void
 swap1 (int v1, int v2)
 {
-  int temp {v1};
+  int temp = v1;
 
   v1 = v2;
   v2 = temp;
@@ -128,7 +141,7 @@ swap1 (int v1, int v2)
 void
 swap2 (int* v1, int* v2)
 {
-  int temp {*v1};
+  int temp = *v1;
 
   *v1 = *v2;
   *v2 = temp;
@@ -138,7 +151,7 @@ swap2 (int* v1, int* v2)
 void
 swap3 (int& v1, int& v2)
 {
-  int temp {v1};
+  int temp = v1;
 
   v1 = v2;
   v2 = temp;
@@ -154,12 +167,12 @@ main ()
   // fn2 ();
   // fn3 ();
 
-  // int i {10};
-  // int j {20};
+  int i = 10;
+  int j = 20;
 
   // swap1 (i, j);
   // swap2 (&i, &j);
-  // swap3 (i, j);
+  swap3 (i, j);
 
-  // cout << "i = " << i << " and j = " << j << endl;
+  cout << "i = " << i << " and j = " << j << endl;
 }
