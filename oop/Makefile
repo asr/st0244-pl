@@ -35,19 +35,19 @@ BoxingUnboxing : BoxingUnboxing.java
 	javac $<
 
 exceptions : exceptions.cc
-	$(CXX) $(CXXFLAGS) $<
+	$(CXX) $(CXXFLAGS) -o $@ $<
 
 function-overloading : function-overloading.cc
-	$(CXX) $(CXXFLAGS) $<
+	$(CXX) $(CXXFLAGS) -o $@ $<
 
 pointers-and-references : pointers-and-references.cc
-	$(CXX) $(CXXFLAGS) $<
+	$(CXX) $(CXXFLAGS) -o $@ $<
 
 polymorphism : polymorphism.cc
-	$(CXX) $(CXXFLAGS) $<
+	$(CXX) $(CXXFLAGS) -o $@ $<
 
 signal-handling : signal-handling.cc
-	$(CXX) $(CXXFLAGS) $<
+	$(CXX) $(CXXFLAGS) -o $@ $<
 
-clean :
-	rm -f a.out
+clean very-clean :
+	find . -type f -executable -delete

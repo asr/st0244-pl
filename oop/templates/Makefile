@@ -24,13 +24,13 @@ all : vector-structure \
       vector-template
 
 vector-structure : vector-structure.cc
-	$(CXX) $(CXXFLAGS) $<
+	$(CXX) $(CXXFLAGS) -o $@ $<
 
 vector-class : vector-class.cc
-	$(CXX) $(CXXFLAGS) $<
+	$(CXX) $(CXXFLAGS) -o $@ $<
 
 vector-template : vector-template.cc
-	$(CXX) $(CXXFLAGS) $<
+	$(CXX) $(CXXFLAGS) -o $@ $<
 
-clean :
-	rm -f a.out
+clean very-clean :
+	find . -type f -executable -delete
