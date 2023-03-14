@@ -6,5 +6,15 @@ a.out
 fp/factorial/fact*
 fibonacci
 mk/config.mk
+oop/classes/vector1
+oop/classes/vector2
+oop/exceptions
+oop/function-overloading
+oop/pointers-and-references
+oop/polymorphism
+oop/signal-handling
+oop/templates/vector-class
+oop/templates/vector-structure
+oop/templates/vector-template
 quickcheck
 side-effects1

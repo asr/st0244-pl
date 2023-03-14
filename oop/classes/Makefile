@@ -22,11 +22,5 @@ endif
 all : vector1 \
       vector2
 
-vector1 : vector1.cc
-	$(CXX) $(CXXFLAGS) -o $@ $<
-
-vector2 : vector2.cc
-	$(CXX) $(CXXFLAGS) -o $@ $<
-
 clean very-clean :
 	find . -type f -executable -delete
