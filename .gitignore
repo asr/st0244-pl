@@ -16,5 +16,6 @@ oop/signal-handling
 oop/templates/vector-class
 oop/templates/vector-structure
 oop/templates/vector-template
+oop/vector
 quickcheck
 side-effects1

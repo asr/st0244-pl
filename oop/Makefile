@@ -26,8 +26,8 @@ all : BoxingUnboxing \
       function-overloading \
       pointers-and-references \
       polymorphism \
-      signal-handling
-	$(MAKE) -C classes
+      signal-handling \
+      vector
 	$(MAKE) -C interfaces
 	$(MAKE) -C templates
 
