@@ -1,3 +1,4 @@
+
 // Adapted from "Stroustrup, Bjarne (2019). A Tour of C++. 2nd
 // ed. Third printing. Addison-Wesley".
 
@@ -48,21 +49,11 @@ public:
   ~Vector() { delete[] elem; }
 
   // Element access (subscripting).
-  // double& operator[] (int i) { return elem[i]; }
-
-  // Element access (subscripting). Detects an out-of-range access and
-  // generates an exception.
-  double&
-  operator[] (int i)
-  {
-    if (i < 0 || size() <= i)
-      throw out_of_range {"Vector::operator[]"};
-    return elem[i];
-  }
+  double& operator[] (int i) { return elem[i]; }
 
   // The function does not modify the caller object so we use the
   // `const`.
-  int size() const { return sz; }
+  int size () const { return sz; }
 };
 
 // Example using `Vector`.
@@ -98,9 +89,11 @@ main ()
 {
   // Initialisation by giving the size.
   // Vector v1(3);
+
   // v1[0] = 1.0;
   // v1[1] = 2.0;
   // v1[2] = 3.0;
+
   // print_vector (v1);
 
   // Using vectors.
@@ -112,11 +105,8 @@ main ()
 
   // Initialisation from a list.
   // Vector v2 = {1.0, 2.0, 3.0};
-  // print_vector (v2);
 
-  // Detects an out-of-range access and generates an exception.
-  // Vector v3(5);
-  // v3[10] = 42;
+  // print_vector (v2);
 
   return 0;
 }

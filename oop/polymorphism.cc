@@ -3,29 +3,31 @@
 
 #include <iostream>
 
+using std::cout;
+
 class Felid {
 public:
-  // Pure virtual function. Derived classes need to overrid/implement
+  // Pure virtual function. Derived classes need to override/implement
   // the function.
   virtual void meow () = 0;
 };
 
 class Cat : public Felid {
 public:
-  void meow () { std::cout << "Meowing like a regular cat! meow!\n"; }
+  void meow () { cout << "Meowing like a regular cat! meow!\n"; }
 };
 
 class Tiger : public Felid {
 public:
-  void meow () { std::cout << "Meowing like a tiger! MREOWWW!\n"; }
+  void meow () { cout << "Meowing like a tiger! MREOWWW!\n"; }
 };
 
 class Ocelot : public Felid {
 public:
-  void meow () { std::cout << "Meowing like an ocelot! mews!\n"; }
+  void meow () { cout << "Meowing like an ocelot! mews!\n"; }
 };
 
-// class OtherFelid : public Felid {};
+class OtherFelid : public Felid {};
 
 void
 do_meowing (Felid& felid)
