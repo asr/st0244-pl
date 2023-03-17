@@ -8,7 +8,7 @@
 using namespace std;
 
 void
-sigHandler (int signum)
+sig_handler (int signum)
 {
   cerr << "Signal received: ";
 
@@ -30,7 +30,7 @@ sigHandler (int signum)
       cerr << "Termination requested\n";
       break;
     }
-  exit(0);
+  exit (0);
 }
 
 int
@@ -42,14 +42,14 @@ zero_fn ()
 int
 main (int argc, char* argv[])
 {
-  signal(SIGABRT, sigHandler);
-  signal(SIGFPE,  sigHandler);
-  signal(SIGINT,  sigHandler);
-  signal(SIGTERM, sigHandler);
+  signal (SIGABRT, sig_handler);
+  signal (SIGFPE,  sig_handler);
+  signal (SIGINT,  sig_handler);
+  signal (SIGTERM, sig_handler);
 
   if (argc < 2)
     {
-      cerr << "error: missing signal\n";
+      cerr << "Error: Missing signal\n";
       return 1;
     }
 
@@ -59,13 +59,13 @@ main (int argc, char* argv[])
     cout << 4 / zero_fn ();
   else if (string (argv[1]) == "SIGINT")
     /* Use CTRL-c for interrupting the execution. */
-    while(1);
+    while (1);
   else if (string (argv[1]) ==  "SIGTERM")
     /* Use `kill pid` for interrupting the execution. */
-    while(1);
+    while (1);
   else
     {
-      cerr << "error: bad signal name\n";
+      cerr << "Error: Bad signal name\n";
       return 1;
     }
 }
