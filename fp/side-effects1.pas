@@ -1,4 +1,4 @@
-{ Tested with Free Pascal Compiler version 3.0.0+dfsg-2 [2016/01/28]. }
+{ Tested with Free Pascal Compiler version .0.4+dfsg-23 [2019/11/25] for x86_64 }
 
 { Adapted from Fig. 5.1 in Kent D. Lee (2017), Foundations of }
 { Programming Languages, 2nd ed. }
@@ -23,5 +23,5 @@ begin
    { writeln(a() + b); }
 
    { Prints 15 }
-   { writeln(b + a()) };
+   { writeln(b + a()); }
 end.

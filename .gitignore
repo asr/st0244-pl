@@ -3,8 +3,10 @@
 *.o
 __pycache__/
 a.out
-fp/factorial/fact*
 fibonacci
+fp/factorial/fact*
+fp/constexpr
+fp/side-effects2
 mk/config.mk
 oop/classes/vector1
 oop/classes/vector2

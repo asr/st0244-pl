@@ -17,7 +17,6 @@ ifdef CXXFLAGS_AUX
 CXXFLAGS := $(CXXFLAGS_AUX)
 endif
 
-CXX11FLAGS := -Wall -Wextra -std=c++11
 GHCFLAGS  := -Wall -Werror
 
 .DEFAULT_GOAL := all
@@ -39,10 +38,7 @@ side-effects1 : side-effects1.pas
 	fpc -vew $<
 
 side-effects2 : side-effects2.cc
-	$(CXX) $<
-
-constexpr : constexpr.cc
-	$(CXX) $(CXX11FLAGS) $<
+	$(CXX) -o $@ $<
 
 fibonacci-static : Fibonacci.hs
 	ghc -Wall -o fibonacci $<
@@ -59,10 +55,7 @@ quickcheck-dynamic : QuickCheck.hs
             -package quickcheck-instances \
             $(GHCFLAGS) -o quickcheck $<
 
-clean :
+clean very-clean :
 	rm -f *.hi
 	rm -f *.o
-	rm -f a.out
-	rm -f fibonacci
-	rm -f quickcheck
-	rm -f side-effects1
+	find . -type f -executable -delete

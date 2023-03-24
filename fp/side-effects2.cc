@@ -7,14 +7,14 @@
 using namespace std;
 
 int
-main ()
+main()
 {
   int x = 1;
 
-  // Compile-time (using `-Wall`): Generates the follwing the warning:
+  // Compilation with `-Wall` generates the following the warning:
   //
   // "operation on ‘x’ may be undefined [-Wsequence-point]"
   //
-  // Run-time: Prints 1,2
+  // The program prints `1,2`.
   cout << x++ << "," << x << endl;
 }
