@@ -17,4 +17,6 @@ main()
   //
   // The program prints `1,2`.
   cout << x++ << "," << x << endl;
+
+  return 0;
 }

@@ -26,18 +26,19 @@ all : constexpr \
       fibonacci-dynamic \
       quickcheck-static \
       quickcheck-dynamic \
-      side-effects1 \
-      side-effects2
+      side-effect-state-c-plusplus \
+      side-effect-state-pascal \
+      side-effect-undefined-operation \
 	ghc $(GHCFLAGS) AST.hs
 	ghc $(GHCFLAGS) HigherOrder.hs
 	ghc $(GHCFLAGS) LetWhere.hs
 	ghc $(GHCFLAGS) Tuples.hs
 	$(MAKE) -C factorial
 
-side-effects1 : side-effects1.pas
-	fpc -vew $<
+side-effect-state-pascal : side-effect-state-pascal.pas
+	fpc -vwnh -Sewnh $<
 
-side-effects2 : side-effects2.cc
+side-effect-undefined-operation : side-effect-undefined-operation.cc
 	$(CXX) -o $@ $<
 
 fibonacci-static : Fibonacci.hs

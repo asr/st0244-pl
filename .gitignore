@@ -3,10 +3,6 @@
 *.o
 __pycache__/
 a.out
-fibonacci
-fp/factorial/fact*
-fp/constexpr
-fp/side-effects2
 mk/config.mk
 oop/classes/vector1
 oop/classes/vector2
@@ -19,5 +15,3 @@ oop/templates/vector-class
 oop/templates/vector-structure
 oop/templates/vector-template
 oop/vector
-quickcheck
-side-effects1
