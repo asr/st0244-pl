@@ -28,7 +28,7 @@ all : constexpr \
       quickcheck-dynamic \
       side-effect-state-c-plusplus \
       side-effect-state-pascal \
-      side-effect-undefined-operation \
+      side-effect-undefined-operation
 	ghc $(GHCFLAGS) AST.hs
 	ghc $(GHCFLAGS) HigherOrder.hs
 	ghc $(GHCFLAGS) LetWhere.hs
@@ -48,13 +48,10 @@ fibonacci-dynamic : Fibonacci.hs
 	ghc -dynamic -Wall -o fibonacci $<
 
 quickcheck-static : QuickCheck.hs
-	ghc $(GHCFLAGS) -o quickcheck $<
+	stack ghc --  $< $(GHCFLAGS) -o quickcheck
 
 quickcheck-dynamic : QuickCheck.hs
-	ghc -dynamic \
-            -package QuickCheck \
-            -package quickcheck-instances \
-            $(GHCFLAGS) -o quickcheck $<
+	stack ghc -- $< -dynamic $(GHCFLAGS) -o quickcheck
 
 clean very-clean :
 	rm -f *.hi

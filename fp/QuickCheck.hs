@@ -1,16 +1,23 @@
+{-# OPTIONS_GHC -Wno-orphans #-}
 
--- Tested QuickCheck 2.13.2 and quickcheck-instances 0.3.22.
+-- Tested QuickCheck 2.14.2.
 
 import Numeric.Natural ( Natural )
 
 import Test.QuickCheck
-  ( classify
-  , collect
+  ( Arbitrary ( arbitrary, shrink )
   , Property
+  , arbitrarySizedNatural
+  , classify
+  , collect
   , quickCheck
+  , shrinkIntegral
   )
 
-import Test.QuickCheck.Instances.Natural ()
+-- From Test.QuickCheck.Instances.Natural
+instance Arbitrary Natural where
+  arbitrary = arbitrarySizedNatural
+  shrink    = shrinkIntegral
 
 -- Non-tail recursive version.
 factorial :: Natural -> Natural

@@ -4,7 +4,6 @@ program P;
 
 { State (global variable) }
 var s : integer;
-var r : integer;
 
 { The function `f` changes the state, i.e. the global variable. }
 function f(a : integer ) : integer;
