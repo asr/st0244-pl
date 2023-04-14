@@ -8,7 +8,7 @@ all : fact1 fact2 fact3 fact4
 fact% : Fact%.hs
 	ghc $(GHC_FLAGS) -o fact$* $<
 
-clean :
+clean very-clean :
 	rm -f *.hi
 	rm -f *.o
-	rm -f fact*
+	find . -type f -executable -delete

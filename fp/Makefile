@@ -17,7 +17,7 @@ ifdef CXXFLAGS_AUX
 CXXFLAGS := $(CXXFLAGS_AUX)
 endif
 
-GHCFLAGS  := -Wall -Werror
+GHCFLAGS := -Wall -Werror
 
 .DEFAULT_GOAL := all
 
