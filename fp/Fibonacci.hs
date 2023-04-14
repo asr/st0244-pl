@@ -14,7 +14,7 @@ fibAP n =
   let fibHelper :: Natural -> Natural -> Natural -> Natural
       fibHelper count current previous =
         if count == n then previous
-        else fibHelper (count + 1) (previous + current) current
+        else fibHelper (count + 1) (current + previous) current
   in  fibHelper 0 1 0
 
 main :: IO ()
