@@ -8,7 +8,7 @@ add1 :: Int -> Int
 add1 n = n + 1
 
 sqr :: Int -> Int
-sqr n = n * n ;
+sqr n = n * n
 
 incsqr :: Int -> Int
 incsqr = add1 . sqr
