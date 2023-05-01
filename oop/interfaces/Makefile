@@ -12,5 +12,5 @@ all : ClassA.java \
       WrongClassC.java
 	javac $(JFLAGS) $?
 
-clean :
+clean very-clean :
 	rm -f *.class

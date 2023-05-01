@@ -22,6 +22,8 @@ JAVAFLAGS := -Xlint -Werror
 .DEFAULT_GOAL := all
 
 all : BoxingUnboxing \
+      CLI \
+      cli \
       exceptions \
       function-overloading \
       pointers-and-references \
@@ -31,8 +33,14 @@ all : BoxingUnboxing \
 	$(MAKE) -C interfaces
 	$(MAKE) -C templates
 
+CLI : CLI.java
+	javac $<
+
 BoxingUnboxing : BoxingUnboxing.java
 	javac $<
 
 clean very-clean :
 	find . -type f -executable -delete
+	rm -f *.class
+	$(MAKE) -C interfaces very-clean
+	$(MAKE) -C templates very-clean
