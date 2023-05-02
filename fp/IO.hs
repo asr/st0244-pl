@@ -8,9 +8,9 @@ module IO where
 -- The type `IO a` is an abstract type with (at least) the following
 -- operations:
 --
--- return  :: a —> IO a
+-- return  :: a -> IO a
 -- (>>=)   :: IO a -> (a -> IO b) -> IO b
--- putChar :: Char - IO ()
+-- putChar :: Char -> IO ()
 -- getChar :: IO Char
 
 import Numeric.Natural ( Natural )
