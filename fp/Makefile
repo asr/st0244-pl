@@ -30,6 +30,7 @@ all : constexpr \
       side-effect-state-pascal \
       side-effect-undefined-operation
 	ghc $(GHCFLAGS) AST.hs
+	ghc $(GHCFLAGS) CPS.hs
 	ghc $(GHCFLAGS) IO.hs
 	ghc $(GHCFLAGS) HigherOrder.hs
 	ghc $(GHCFLAGS) LetWhere.hs
