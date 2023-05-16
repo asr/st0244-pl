@@ -24,7 +24,7 @@ append([H | T1], L2, [H | T3]) :- append(T1, L2, T3).
 % "X is a sublist of Y if you can append something on the front of X to
 % get L and something else on the end of L to get Y." (p. 283).
 
-sublist(X, Y) :- append(_, X, L) , append(L, _, Y).
+sublist(X,Y) :- append(_, X, L) , append(L, _, Y).
 
 % Examples
 % sublist([1], [1,2]).

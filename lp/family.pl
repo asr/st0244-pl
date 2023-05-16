@@ -54,5 +54,5 @@ parent(john, michelle).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Predicates.
 
-father(X, Y) :- parent(X, Y), male(X).
-mother(X, Y) :- parent(X, Y), female(X).
+father(X,Y) :- parent(X,Y), male(X).
+mother(X,Y) :- parent(X,Y), female(X).

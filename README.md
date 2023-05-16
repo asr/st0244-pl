@@ -105,7 +105,7 @@ CXXFLAGS_AUX := -Wall -Wextra -Werror -std=c++23
 
     ```bash
     $ swipl --version
-    SWI-Prolog version 8.0.3 for x86_64-linux
+    SWI-Prolog version 8.4.2 for x86_64-linux
     ```
 
 * Python files were tested with
