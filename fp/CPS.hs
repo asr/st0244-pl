@@ -1,7 +1,7 @@
 
 module CPS where
 
--- Length of a list by pattern matching (first version).
+-- Length of a list by pattern matching and recursion (first version).
 len1 :: [a] -> Int
 len1 []       = 0
 len1 (_ : xs) = 1 + len1 xs
@@ -27,7 +27,7 @@ len1CPS (_ : xs) k = len1CPS xs (\v -> k (v + 1))
 --                    = id 3
 --                    = 3
 
--- Length of a list by pattern matching (second version).
+-- Length of a list by pattern matching and recursion (second version).
 len2 :: [a] -> Int
 len2 []       = 0
 len2 (_ : xs) = succ (len2 xs)
@@ -52,14 +52,14 @@ len2CPS (_ : xs) k = len2CPS xs (k . succ)
 -----------------------------------------------------------------------------
 -- Example adapted from https://free.cofree.io/2020/01/02/cps/
 
--- Left-valued tree data type.
+-- Leaf-valued tree data type.
 data Tree = Branch Tree Tree | Leaf Int
 
 tree :: Tree
 tree = Branch (Branch (Leaf 1) (Leaf 2))
               (Branch (Leaf 6) (Leaf 5))
 
--- Sums up the leaf values by pattern matching.
+-- Sums up the leafs values (pattern matching an recursion)
 leafSum :: Tree -> Int
 leafSum (Leaf n)       = n
 leafSum (Branch tl tr) = leafSum tl + leafSum tr
@@ -67,7 +67,7 @@ leafSum (Branch tl tr) = leafSum tl + leafSum tr
 -- GHCi> leafSum tree
 -- 14
 
--- Sums up the leaf values by CPS.
+-- Sums up the leaf values (CPS version).
 leafSumCPS :: Tree -> (Int -> r) -> r
 leafSumCPS (Leaf n)       k = k n
 leafSumCPS (Branch tl tr) k =
