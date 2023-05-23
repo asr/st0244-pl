@@ -10,5 +10,6 @@ reverse1 (x : xs) = reverse1 xs ++ [x]
 reverse2 :: [a] -> [a]
 reverse2 xs = rev xs []
   where
+  rev :: [a] -> [a] -> [a]
   rev []       zs = zs
   rev (y : ys) zs = rev ys (y : zs)
