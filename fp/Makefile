@@ -34,6 +34,7 @@ all : constexpr \
 	ghc $(GHCFLAGS) IO.hs
 	ghc $(GHCFLAGS) HigherOrder.hs
 	ghc $(GHCFLAGS) LetWhere.hs
+	ghc $(GHCFLAGS) Reverse.hs
 	ghc $(GHCFLAGS) Tuples.hs
 	$(MAKE) -C factorial
 
