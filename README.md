@@ -66,7 +66,7 @@ JCoCo output when using the `-v` option, e.g.
 ### Local compilation options
 
 You can create the `.gitignored` file `mk/config.mk` for defining your
-local compilation options. See `Makefile`'s for details. An example of
+local compilation options. See `oop/Makefile`'s for details. An example of
 this file is the following:
 
 ```bash
@@ -94,11 +94,11 @@ CXXFLAGS_AUX := -Wall -Wextra -Werror -std=c++23
 * JCoCo and Java files were tested with
 
     ```bash
-    $ javac -version
-    javac 19.0.1
+    $ javac --version
+    javac 19.0.2
 
-    $ java -version
-    openjdk 19.0.1 2022-10-18
+    $ java --version
+    openjdk 19.0.2 2023-01-1
     ```
 
 * Prolog files were tested with
@@ -113,4 +113,11 @@ CXXFLAGS_AUX := -Wall -Wextra -Werror -std=c++23
     ```bash
     $ python --version
     Python 3.2.6
+    ```
+
+* Standard ML files were tested with
+
+    ```bash
+    $ mlton
+    MLton 20210117
     ```
