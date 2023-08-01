@@ -77,6 +77,13 @@ CXXFLAGS_AUX := -Wall -Wextra -Werror -std=c++23
 
 ### Tested with
 
+* Assembler files were tested with
+
+    ```bash
+    $ nasm --version
+    NASM version 2.16.01
+    ```
+
 * C++ files were tested with
 
     ```bash
