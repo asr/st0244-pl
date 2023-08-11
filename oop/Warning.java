@@ -1,7 +1,7 @@
 
 public class Warning {
   public static void main(String args[]) {
-    String s = (String)"hello, word";
+    String s = (String) "hello, word";
     System.out.println(s);
   }
 }

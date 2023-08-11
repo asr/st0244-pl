@@ -2,10 +2,12 @@
 
 #include <iostream>
 
+using namespace std;
+
 int
 main ()
 {
-  std::cout << "Hello World! (C++)" << std::endl;
+  cout << "Hello World! (C++)" << endl;
 
   return 0;
 }
