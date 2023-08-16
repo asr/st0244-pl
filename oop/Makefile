@@ -29,15 +29,48 @@ all : BoxingUnboxing \
       pointers-and-references \
       polymorphism \
       signal-handling \
+      toy-accounting-system \
       vector
 	$(MAKE) -C interfaces
 	$(MAKE) -C templates
+
+##############################################################################
+# C++
+
+cli : cli.cc
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
+exceptions : exceptions.cc
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
+function-overloading : function-overloading.cc
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
+pointers-and-references : pointers-and-references.cc
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
+polymorphism : polymorphism.cc
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
+signal-handling : signal-handling.cc
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
+toy-accounting-system : toy-accounting-system.cc
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
+vector : vector.cc
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
+##############################################################################
+# Java
 
 CLI : CLI.java
 	javac $<
 
 BoxingUnboxing : BoxingUnboxing.java
 	javac $<
+
+##############################################################################
 
 clean very-clean :
 	find . -type f -executable -delete

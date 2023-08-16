@@ -6,6 +6,7 @@ a.out
 mk/config.mk
 oop/classes/vector1
 oop/classes/vector2
+oop/cli
 oop/exceptions
 oop/function-overloading
 oop/pointers-and-references
@@ -14,4 +15,5 @@ oop/signal-handling
 oop/templates/vector-class
 oop/templates/vector-structure
 oop/templates/vector-template
+oop/toy-accounting-system
 oop/vector
