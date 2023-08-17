@@ -1,42 +1,37 @@
+
 // Toy home-finance accounting system based on the Smalltalk tutorial
 // (https://www.gnu.org/software/smalltalk/manual/html_node/Tutorial.html).
 
-#include <cstdlib>
-#include <iostream>
-#include <map>
-
-using namespace std;
+import java.util.HashMap;
 
 //////////////////////////////////////////////////////////////////////////////
 // The `Account` class.
 
 class Account {
-private:  // Access specifier.
-  float balance;  // Attribute.
+  private float balance;  // Attribute.
 
-public:  // Access specifier.
   // The constructor initializes the private variable `balance` to
   // zero.
-  Account() { balance = 0.0; }
+  public Account() { balance = 0.0f; }
 
   // Pretty printer for class.
-  void prettyPrint()
+  public void prettyPrint()
   {
-    cout << "The balance is " << balance;
+    System.out.print("The balance is " + balance);
   }
 
   // Deposit money.
-  void deposit(float amount)
+  public void deposit(float amount)
   {
     balance = balance + amount;
   }
 
   // Spend money.
-  void spend(float amount)
+  public void spend(float amount)
   {
     balance = balance - amount;
   }
-};
+}
 
 //////////////////////////////////////////////////////////////////////////////
 // The `Savings` subclass.
@@ -45,40 +40,35 @@ public:  // Access specifier.
 // money, just like an `Account`, and it also pays interest based on
 // its balance.
 
-class Savings : public Account {
-private:  // Access specifier.
-  float interest;  // Attribute.
+class Savings extends Account {
+  private float interest;  // Attribute.
 
-public:  // Access specifier.
-  // The constructor initializes the private variable `interest`
-  // to zero.
-  Savings() { interest = 0.0; }
+  // The constructor initializes the private variable `interest` to
+  // zero.
+  public Savings() { interest = 0.0f; }
 
   // Pretty printer for class.
-  void prettyPrint()
+  public void prettyPrint()
   {
-    Account::prettyPrint();
-    cout << " and the interest is " << interest;
+    super.prettyPrint();
+    System.out.print(" and the interest is " + interest);
   }
 
   // Method.
-  void newInterest(float amount)
+  public void newInterest(float amount)
   {
     // We add the `amount` to our interest.
     interest = interest + amount;
 
     // We add the `amount` to our balance.
-    //
-    // In a member function, the keyword `this` points to the object
-    // for which the member function is called.
-    this -> deposit(amount);
+    super.deposit(amount);
   }
 
   // Method.
   float clearInterest()
   {
     float oldInterest = interest;
-    interest = 0.0;
+    interest = 0.0f;
 
     return oldInterest;
   }
@@ -93,28 +83,27 @@ public:  // Access specifier.
 //
 // * How many checks we have left in our checkbook
 
-class Checking : public Account {
-private:  // Access specifier.
-  int checkNum, checksLeft;  // Attributes.
-  map<int, float> history;  // Attribute.
+class Checking extends Account {
+  private int checkNum, checksLeft;  // Attributes.
+  HashMap<Integer, Float> history =
+    new HashMap<Integer, Float>();  // Attributes.
 
-public:  // Access specifier.
   // The constructor initializes the private variable `checksLeft` to
   // zero.
-  Checking() { checksLeft = 0; }
+  public Checking() { checksLeft = 0; }
 
   // Pretty printer for class.
-  void prettyPrint()
+  public void prettyPrint()
   {
-    Account::prettyPrint();
-    cout << ", the checks left are " << checksLeft
-         << " and the checks written are " << history.size();
+    super.prettyPrint();
+    System.out.print(", the checks left are " + checksLeft);
+    System.out.print(" and the checks written are " + history.size());
   }
 
   // `newChecks' fills our checkbook with checks.  We record what
   // check number we're starting with, and update the count of the
   // number of checks in the checkbook.
-  void newChecks(int number, int checkCount)
+  public void newChecks(int number, int checkCount)
   {
     checkNum = number;
     checksLeft = checkCount;
@@ -123,7 +112,7 @@ public:  // Access specifier.
   // `writeCheck` notes the next check number, then bumps up the check
   // number, and down the check count and use the `spend` method from
   // the base class.
-  int writeCheck(float amount)
+  public int writeCheck(float amount)
   {
     int num;
 
@@ -131,67 +120,59 @@ public:  // Access specifier.
     if ( checksLeft < 1 ) {
 
       // We write to the standard error.
-      cerr << "Error: Out of checks" << endl;
+      System.err.println("Error: Out of checks");
 
       // We exit with an error.
-      exit(1);
+      System.exit(1);
     }
 
     // Make sure we've never used this check number before.
     num = checkNum;
-    if ( history.find(num) != history.end() ) {
+    if ( history.containsKey(num) ) {
 
       // We write to the standard error.
-      cerr << "Error: Duplicate check number" << endl;
+      System.err.println("Error: Duplicate check number");
 
       // We exit with an error.
-      exit(1);
+      System.exit(1);
     }
 
     // Record the check number and amount.
-    history.insert({num, amount});
+    history.put(num, amount);
 
     // Update our next checknumber, checks left, and balance.
     checkNum = checkNum + 1;
     checksLeft = checksLeft - 1;
-
-    // In a member function, the keyword `this` points to the object
-    // for which the member function is called.
-    this -> spend(amount);
+    super.spend(amount);
 
     return num;
   }
 
-  void prettyPrintChecks()
+  public void prettyPrintChecks()
   {
-    for ( const auto& elem : history ) {
-        cout << "check number: "
-             << elem.first
-             << " value: "
-             << elem.second
-             << endl;
-    }
+    for ( Integer i : history.keySet() )
+      System.out.println("check number: " + i + " value: " + history.get(i));
   }
-};
+}
 
 //////////////////////////////////////////////////////////////////////////////
 // The main.
 
-int
-main()
-{
+class ToyAccountSystem {
+  public static void main(String[] args)
+  {
+    //////////////////////////////////////////////////////////////////////////
+    Account a = new Account();
+
+    a.deposit(125);
+    a.deposit(20);
+    a.spend(10);
+
+    a.prettyPrint();
+    System.out.println();
+
   ////////////////////////////////////////////////////////////////////////////
-  Account a;
-
-  a.deposit(125);
-  a.deposit(20);
-  a.spend(10);
-
-  a.prettyPrint();
-  cout << endl;
-
-  ////////////////////////////////////////////////////////////////////////////
-  Savings s;
+  Savings s = new Savings();
 
   s.deposit(125);
   s.deposit(20);
@@ -199,21 +180,19 @@ main()
   s.newInterest(5);
 
   s.prettyPrint();
-  cout << endl;
+  System.out.println();
 
   ////////////////////////////////////////////////////////////////////////////
-  Checking c;
+  Checking c = new Checking();
 
   c.deposit(250);
   c.newChecks(100,50);
   c.writeCheck(32);
 
   c.prettyPrint();
-  cout << endl;
+  System.out.println();
 
   c.prettyPrintChecks();
-  cout << endl;
-
-  ////////////////////////////////////////////////////////////////////////////
-  return 0;
+  System.out.println();
+  }
 }

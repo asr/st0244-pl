@@ -23,5 +23,14 @@ all : vector-structure \
       vector-class \
       vector-template
 
+vector-structure : vector-structure.cc
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
+vector-class : vector-class.cc
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
+vector-template : vector-template.cc
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
 clean very-clean :
 	find . -type f -executable -delete

@@ -23,6 +23,7 @@ JAVAFLAGS := -Xlint -Werror
 
 all : BoxingUnboxing \
       CLI \
+      ToyAccountingSystem \
       cli \
       exceptions \
       function-overloading \
@@ -61,14 +62,28 @@ toy-accounting-system : toy-accounting-system.cc
 vector : vector.cc
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
+# Generate to warnings.
+warning : warning.cc
+	$(CXX) $(CXXFLAGS) \
+        -Wno-error=unused-parameter -Wno-error=uninitialized \
+        -o $@ $<
+
 ##############################################################################
 # Java
 
 CLI : CLI.java
-	javac $<
+	javac $(JAVAFLAGS) $<
 
+# Generate a warning.
 BoxingUnboxing : BoxingUnboxing.java
 	javac $<
+
+# Generate a warning.
+Warning : Warning.java
+	javac -Xlint $<
+
+ToyAccountingSystem : ToyAccountingSystem.java
+	javac $(JAVAFLAGS) $<
 
 ##############################################################################
 
