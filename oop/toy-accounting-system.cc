@@ -120,65 +120,69 @@ public:  // Access specifier.
     checksLeft = checkCount;
   }
 
-  // `writeCheck` notes the next check number, then bumps up the check
-  // number, and down the check count and use the `spend` method from
-  // the base class.
-  int writeCheck(float amount)
-  {
-    int num;
+  int writeCheck(float amount);
 
-    // Sanity check that we have checks left in our checkbook.
-    if ( checksLeft < 1 ) {
-
-      // We write to the standard error.
-      cerr << "Error: Out of checks" << endl;
-
-      // We exit with an error.
-      exit(1);
-    }
-
-    // Make sure we've never used this check number before.
-    num = checkNum;
-    if ( history.find(num) != history.end() ) {
-
-      // We write to the standard error.
-      cerr << "Error: Duplicate check number" << endl;
-
-      // We exit with an error.
-      exit(1);
-    }
-
-    // Record the check number and amount.
-    history.insert({num, amount});
-
-    // Update our next checknumber, checks left, and balance.
-    checkNum = checkNum + 1;
-    checksLeft = checksLeft - 1;
-
-    // In a member function, the keyword `this` points to the object
-    // for which the member function is called.
-    this -> spend(amount);
-
-    return num;
-  }
-
-  void prettyPrintChecks()
-  {
-    for ( const auto& elem : history ) {
-        cout << "check number: "
-             << elem.first
-             << " value: "
-             << elem.second
-             << endl;
-    }
-  }
+  void prettyPrintChecks();
 };
+
+// `writeCheck` notes the next check number, then bumps up the check
+// number, and down the check count and use the `spend` method from
+// the base class.
+int Checking::writeCheck(float amount)
+{
+  int num;
+
+  // Sanity check that we have checks left in our checkbook.
+  if ( checksLeft < 1 ) {
+
+    // We write to the standard error.
+    cerr << "Error: Out of checks" << endl;
+
+    // We exit with an error.
+    exit(1);
+  }
+
+  // Make sure we've never used this check number before.
+  num = checkNum;
+  if ( history.find(num) != history.end() ) {
+
+    // We write to the standard error.
+    cerr << "Error: Duplicate check number" << endl;
+
+    // We exit with an error.
+    exit(1);
+  }
+
+  // Record the check number and amount.
+  history.insert({num, amount});
+
+  // Update our next checknumber, checks left, and balance.
+  checkNum = checkNum + 1;
+  checksLeft = checksLeft - 1;
+
+  // In a member function, the keyword `this` points to the object
+  // for which the member function is called.
+  this -> spend(amount);
+
+  return num;
+}
+
+// Pretty print for checks.
+void Checking::prettyPrintChecks()
+{
+  for ( auto elem : history ) {
+    cout << "check number: "
+         << elem.first
+         << " value: "
+         << elem.second
+         << endl;
+  }
+}
 
 //////////////////////////////////////////////////////////////////////////////
 // The main.
 
-int
-main()
+int main()
 {
   ////////////////////////////////////////////////////////////////////////////
   Account a;

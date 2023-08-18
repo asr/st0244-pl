@@ -85,12 +85,14 @@ class Savings extends Account {
 
 class Checking extends Account {
   private int checkNum, checksLeft;  // Attributes.
-  HashMap<Integer, Float> history =
-    new HashMap<Integer, Float>();  // Attributes.
+  HashMap<Integer, Float> history;  // Attributes.
 
   // The constructor initializes the private variable `checksLeft` to
-  // zero.
-  public Checking() { checksLeft = 0; }
+  // zero and the private variable `history`.
+  public Checking()
+  { checksLeft = 0;
+    history = new HashMap<Integer, Float>();
+  }
 
   // Pretty printer for class.
   public void prettyPrint()
