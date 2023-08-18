@@ -62,7 +62,7 @@ toy-accounting-system : toy-accounting-system.cc
 vector : vector.cc
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
-# Generate to warnings.
+# Generate two warnings.
 warning : warning.cc
 	$(CXX) $(CXXFLAGS) \
         -Wno-error=unused-parameter -Wno-error=uninitialized \
