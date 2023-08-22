@@ -90,7 +90,8 @@ class Checking extends Account {
   // The constructor initializes the private variable `checksLeft` to
   // zero and the private variable `history`.
   public Checking()
-  { checksLeft = 0;
+  {
+    checksLeft = 0;
     history = new HashMap<Integer, Float>();
   }
 
