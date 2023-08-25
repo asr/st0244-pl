@@ -133,7 +133,7 @@ int Checking::writeCheck(float amount)
   int num;
 
   // Sanity check that we have checks left in our checkbook.
-  if ( checksLeft < 1 ) {
+  if (checksLeft < 1) {
 
     // We write to the standard error.
     cerr << "Error: Out of checks" << endl;
@@ -170,7 +170,7 @@ int Checking::writeCheck(float amount)
 // Pretty print for checks.
 void Checking::prettyPrintChecks()
 {
-  for ( auto elem : history ) {
+  for (auto elem : history) {
     cout << "check number: "
          << elem.first
          << " value: "

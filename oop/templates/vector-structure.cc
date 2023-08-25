@@ -14,8 +14,7 @@ struct Vector {
 };
 
 // Construct a `Vector`.
-void
-vectorInit (Vector& v, int s)
+void vectorInit(Vector& v, int s)
 {
   // Allocate an array of `s` doubles.
   // The `new` operator allocates memory from the heap.
@@ -24,8 +23,7 @@ vectorInit (Vector& v, int s)
 }
 
 // Example using `Vector`.
-double
-readAndSum (int s)
+double readAndSum(int s)
 // Read `s` integers from `cin` and return their sum; `s` is assumed
 // to be positive.
 {
@@ -33,25 +31,24 @@ readAndSum (int s)
   Vector v;
 
   // Allocate `s` elements for `v`.
-  vectorInit (v, s);
+  vectorInit(v, s);
 
   // Read into elements.
-  for (int i = 0; i != v.sz; ++i)
+  for ( int i = 0; i != v.sz; ++i )
     cin >> v.elem[i];
 
   double sum = 0;
 
   // Compute the sum of the elements.
-  for (int i = 0; i != v.sz; ++i)
+  for ( int i = 0; i != v.sz; ++i )
     sum += v.elem[i];
 
   return sum;
 }
 
-int
-main ()
+int main()
 {
-  double r = readAndSum (3);
+  double r = readAndSum(3);
 
   cout << "The sum (using structures) is " << r << endl ;
 }

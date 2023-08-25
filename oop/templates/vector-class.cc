@@ -18,17 +18,16 @@ private:
 
 public:
   // Constructor.
-  Vector (int s) : elem {new double[s]}, sz {s} {}
+  Vector(int s) : elem {new double[s]}, sz {s} {}
 
   // Element access (subscripting).
   double& operator[] (int i) { return elem[i]; }
 
-  int size () { return sz; }
+  int size() { return sz; }
 };
 
 // Example using `Vector`.
-double
-readAndSum (int s)
+double readAndSum(int s)
 // Read `s` integers from `cin` and return their sum; `s` is assumed
 // to be positive.
 {
@@ -36,20 +35,19 @@ readAndSum (int s)
   Vector v(s);
 
   // Read into elements.
-  for (int i = 0; i != v.size(); ++i)
+  for ( int i = 0; i != v.size(); ++i )
     cin >> v[i];
 
   double sum = 0;
 
   // Compute the sum of the elements.
-  for (int i = 0; i != v.size(); ++i)
+  for ( int i = 0; i != v.size(); ++i )
     sum += v[i];
 
   return sum;
 }
 
-int
-main ()
+int main()
 {
   double r = readAndSum (3);
 

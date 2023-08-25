@@ -2,10 +2,9 @@
 
 #include <stdio.h>
 
-int
-main (void)
+int main()
 {
-  printf ("Hello, World! (C)\n");
+  printf("Hello, World! (C)\n");
 
   return 0;
 }

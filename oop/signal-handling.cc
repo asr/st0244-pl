@@ -7,8 +7,7 @@
 
 using namespace std;
 
-void
-sig_handler (int signum)
+void sig_handler(int signum)
 {
   cerr << "Signal received: ";
 
@@ -30,22 +29,20 @@ sig_handler (int signum)
       cerr << "Termination requested\n";
       break;
     }
-  exit (0);
+  exit(0);
 }
 
-int
-zero_fn ()
+int zero_fn()
 {
   return 0;
 }
 
-int
-main (int argc, char* argv[])
+int main(int argc, char* argv[])
 {
-  signal (SIGABRT, sig_handler);
-  signal (SIGFPE,  sig_handler);
-  signal (SIGINT,  sig_handler);
-  signal (SIGTERM, sig_handler);
+  signal(SIGABRT, sig_handler);
+  signal(SIGFPE,  sig_handler);
+  signal(SIGINT,  sig_handler);
+  signal(SIGTERM, sig_handler);
 
   if (argc < 2)
     {
@@ -54,9 +51,9 @@ main (int argc, char* argv[])
     }
 
   if (string (argv[1]) == "SIGABRT")
-    abort ();
+    abort();
   else if (string (argv[1]) == "SIGFPE")
-    cout << 4 / zero_fn ();
+    cout << 4 / zero_fn();
   else if (string (argv[1]) == "SIGINT")
     /* Use CTRL-c for interrupting the execution. */
     while (1);

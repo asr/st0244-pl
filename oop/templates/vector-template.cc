@@ -31,7 +31,7 @@ public:
 
 // Example using `Vector`.
 template<typename T>
-T readAndSum (int s)
+T readAndSum(int s)
 // Read `s` integers from `cin` and return their sum; `s` is assumed
 // to be positive.
 {
@@ -39,20 +39,19 @@ T readAndSum (int s)
   Vector<T> v(s);
 
   // Read into elements.
-  for (int i = 0; i != v.size(); ++i)
+  for ( int i = 0; i != v.size(); ++i )
     cin >> v[i];
 
   T sum = 0;
 
   // Compute the sum of the elements.
-  for (int i = 0; i != v.size(); ++i)
+  for ( int i = 0; i != v.size(); ++i )
     sum += v[i];
 
   return sum;
 }
 
-int
-main ()
+int main()
 {
   int r = readAndSum<int> (3);
 

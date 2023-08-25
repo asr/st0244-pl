@@ -8,7 +8,7 @@ using namespace std;
 class Vector {
 public:
   // Construct a Vector.
-  Vector (int s) : elem {new double[s]}, sz {s} {}
+  Vector(int s) : elem {new double[s]}, sz {s} {}
 
   // Element access (subscripting).
   // double& operator[] (int i) { return elem[i]; }
@@ -17,12 +17,12 @@ public:
   // generates an exception.
   double& operator[] (int i)
   {
-    if (i < 0 || size () <= i)
+    if ( i < 0 || size () <= i )
       throw out_of_range {"Vector::operator[]"};
     return elem[i];
   }
 
-  int size () const { return sz; }
+  int size() const { return sz; }
 
 private:
   double* elem; // Pointer to the elements.
@@ -30,8 +30,7 @@ private:
 
 };
 
-int
-main ()
+int main()
 {
   Vector v(2);
 

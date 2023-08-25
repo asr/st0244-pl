@@ -13,8 +13,7 @@ using namespace std;
 //////////////////////////////////////////////////////////////////////////////
 // Coping arrays
 
-void
-fn1 ()
+void fn1()
 {
   // Source array. In declarations, `[]` means "array of".
   int v1[10] = {0,1,2,3,4,5,6,7,8,9};
@@ -23,11 +22,11 @@ fn1 ()
   int v2[10];
 
   // Copying the arrays.
-  for (int i = 0; i != 10; ++i)
+  for ( int i = 0; i != 10; ++i )
     v2[i] = v1[i];
 
   // Print the target array.
-  for (int i = 0; i != 10; ++i)
+  for ( int i = 0; i != 10; ++i )
     cout << v2[i] << endl;
 }
 
@@ -37,8 +36,7 @@ fn1 ()
 // A pointer variable is a variable that stores/points the address of
 // another variable of the appropriate type.
 
-void
-fn2 ()
+void fn2()
 {
   // Array of characters.
   char v[6] = "aeiou";
@@ -93,8 +91,7 @@ a reference cannot be made to refer to a different object after its
 initialization." (Stroustrup, 2019, p. 12)
 */
 
-void
-fn3 ()
+void fn3()
 {
   int i = 3;
   int* pi;
@@ -128,8 +125,7 @@ fn3 ()
 // Pointers and references as parameters
 
 // Does not work because C++ passes function arguments by value.
-void
-swap1 (int v1, int v2)
+void swap1(int v1, int v2)
 {
   int temp = v1;
 
@@ -138,8 +134,7 @@ swap1 (int v1, int v2)
 }
 
 // Solution using pointers.
-void
-swap2 (int* v1, int* v2)
+void swap2(int* v1, int* v2)
 {
   int temp = *v1;
 
@@ -148,8 +143,7 @@ swap2 (int* v1, int* v2)
 }
 
 // Solution using references.
-void
-swap3 (int& v1, int& v2)
+void swap3(int& v1, int& v2)
 {
   int temp = v1;
 
@@ -160,19 +154,18 @@ swap3 (int& v1, int& v2)
 //////////////////////////////////////////////////////////////////////////////
 // Main
 
-int
-main ()
+int main()
 {
-  // fn1 ();
-  // fn2 ();
-  // fn3 ();
+  // fn1();
+  // fn2();
+  // fn3();
 
   int i = 10;
   int j = 20;
 
-  // swap1 (i, j);
-  // swap2 (&i, &j);
-  swap3 (i, j);
+  // swap1(i, j);
+  // swap2(&i, &j);
+  swap3(i, j);
 
   cout << "i = " << i << " and j = " << j << endl;
 }

@@ -19,7 +19,7 @@ private:
 
 public:
   // Constructor.
-  Vector (int s) {
+  Vector(int s) {
 
     // The size of the vector is an invariante
     if (s < 0)
@@ -30,19 +30,19 @@ public:
     sz = s;
 
     // Initialize elements.
-    for (int i = 0; i != s; i++)
+    for ( int i = 0; i != s; i++ )
       elem[i] = 0;
   }
 
   // Constructor. Initialisation from a list.
-  Vector (std::initializer_list<double> lst) {
+  Vector(std::initializer_list<double> lst) {
 
     // initialize with a list
     elem = new double[lst.size()];
     sz   = static_cast <int> (lst.size());
 
     // Copy from `lst` into `elem`.
-    copy (lst.begin(), lst.end(), elem);
+    copy(lst.begin(), lst.end(), elem);
   }
 
   // Destructor.
@@ -53,12 +53,11 @@ public:
 
   // The function does not modify the caller object so we use the
   // `const`.
-  int size () const { return sz; }
+  int size() const { return sz; }
 };
 
 // Example using `Vector`.
-double
-read_and_sum (int s)
+double read_and_sum(int s)
 // Read `s` integers from `cin` and return their sum; `s` is assumed
 // to be positive.
 {
@@ -72,20 +71,19 @@ read_and_sum (int s)
   double sum = 0;
 
   // Compute the sum of the elements.
-  for (int i = 0; i != v.size(); ++i)
+  for ( int i = 0; i != v.size(); ++i )
     sum += v[i];
 
   return sum;
 }
 
-void print_vector (Vector& v)
+void print_vector(Vector& v)
 {
-  for (int i = 0; i != v.size(); ++i)
+  for ( int i = 0; i != v.size(); ++i )
     cout << v[i] << endl;
 }
 
-int
-main ()
+int main()
 {
   // Initialisation by giving the size.
   // Vector v1(3);

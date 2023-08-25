@@ -120,7 +120,7 @@ class Checking extends Account {
     int num;
 
     // Sanity check that we have checks left in our checkbook.
-    if ( checksLeft < 1 ) {
+    if (checksLeft < 1) {
 
       // We write to the standard error.
       System.err.println("Error: Out of checks");
