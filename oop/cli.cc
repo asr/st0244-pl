@@ -1,4 +1,6 @@
+
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -12,10 +14,15 @@ int main (int argc, char** argv)
   for ( int i = 0; i < argc; i++ )
     cout << argv[i] << endl;
 
-  return 0;
+  // Using a for-each loop.
+  // vector<string> args(argv, argv + argc);
+  // for (const auto& a : args)
+  //   cout << a << endl;
 }
 
-// Runing example:
+// Running example:
+// $ make cli
+// ./cli c++ java haskell prolog
 // Number of arguments: 5
 // ./cli
 // c++
