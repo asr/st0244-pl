@@ -70,13 +70,13 @@ void fn2()
 
   // What is the ouput of `p + 10`?
   //
-  // cout << p + 10 << endl;
+  // cout << p + 4 << endl;
   //
   // Why?
 
   // What is the ouput of `(void *) (p + 10)`?
   //
-  // cout << (void *) (p + 10) << endl;
+  // cout << (void *) (p + 4) << endl;
   //
   // Why?
 }
@@ -160,12 +160,12 @@ int main()
   // fn2();
   // fn3();
 
-  int i = 10;
-  int j = 20;
+  // int i = 10;
+  // int j = 20;
 
   // swap1(i, j);
   // swap2(&i, &j);
-  swap3(i, j);
+  // swap3(i, j);
 
-  cout << "i = " << i << " and j = " << j << endl;
+  // cout << "i = " << i << " and j = " << j << endl;
 }
