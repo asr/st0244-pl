@@ -9,6 +9,7 @@ oop/classes/vector2
 oop/cli
 oop/exceptions
 oop/function-overloading
+oop/multiple-inheritance
 oop/pointers-and-references
 oop/polymorphism
 oop/signal-handling

@@ -27,6 +27,7 @@ all : BoxingUnboxing \
       cli \
       exceptions \
       function-overloading \
+      multiple-inheritance \
       pointers-and-references \
       polymorphism \
       signal-handling \
@@ -46,6 +47,9 @@ exceptions : exceptions.cc
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
 function-overloading : function-overloading.cc
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
+multiple-inheritance : multiple-inheritance.cc
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
 pointers-and-references : pointers-and-references.cc
