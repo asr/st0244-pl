@@ -32,7 +32,8 @@ all : BoxingUnboxing \
       signal-handling \
       toy-accounting-system \
       vector
-	$(MAKE) -C interfaces
+	$(MAKE) -C java-multiple-inheritance/interfaces
+	$(MAKE) -C java-multiple-inheritance/classes
 	$(MAKE) -C templates
 
 ##############################################################################
@@ -90,5 +91,6 @@ ToyAccountingSystem : ToyAccountingSystem.java
 clean very-clean :
 	find . -type f -executable -delete
 	rm -f *.class
-	$(MAKE) -C interfaces very-clean
+	$(MAKE) -C java-multiple-inheritance/interfaces very-clean
+	$(MAKE) -C java-multiple-inheritance/classes very-clean
 	$(MAKE) -C templates very-clean
