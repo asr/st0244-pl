@@ -5,7 +5,12 @@
 #include <iostream>
 #include <map>
 
-using namespace std;
+// using namespace std;
+
+using std::cin;
+using std::cerr;
+using std::cout;
+using std::endl;
 
 //////////////////////////////////////////////////////////////////////////////
 // The `Account` class.
@@ -96,7 +101,7 @@ public:  // Access specifier.
 class Checking : public Account {
 private:  // Access specifier.
   int checkNum, checksLeft;  // Attributes.
-  map<int, float> history;  // Attribute.
+  std::map<int, float> history;  // Attribute.
 
 public:  // Access specifier.
   // The constructor initializes the private variable `checksLeft` to

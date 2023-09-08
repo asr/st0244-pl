@@ -5,7 +5,11 @@
 
 #include <iostream>
 
-using namespace std;
+// using namespace std;
+
+using std::cin;
+using std::cout;
+using std::endl;
 
 // Using classes for defining a type we can separate the interface to
 // the type (public members) from its implementation/representation

@@ -2,7 +2,10 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
+// using namespace std;
+
+using std::cout;
+using std::endl;
 
 // Main function with arguments.
 // The first argument is the name of the program.

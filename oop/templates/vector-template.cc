@@ -5,7 +5,11 @@
 
 #include <iostream>
 
-using namespace std;
+// using namespace std;
+
+using std::cin;
+using std::cout;
+using std::endl;
 
 // "A template is a class or a function that we parameterize with a set
 // of types or values. We use templates to represent ideas that are

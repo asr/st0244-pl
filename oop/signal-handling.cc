@@ -5,7 +5,10 @@
 #include <csignal>
 #include <stdlib.h>
 
-using namespace std;
+// using namespace std;
+
+using std::cerr;
+using std::cout;
 
 void sig_handler(int signum)
 {
@@ -50,14 +53,14 @@ int main(int argc, char* argv[])
       return 1;
     }
 
-  if (string (argv[1]) == "SIGABRT")
+  if (std::string (argv[1]) == "SIGABRT")
     abort();
-  else if (string (argv[1]) == "SIGFPE")
+  else if (std::string (argv[1]) == "SIGFPE")
     cout << 4 / zero_fn();
-  else if (string (argv[1]) == "SIGINT")
+  else if (std::string (argv[1]) == "SIGINT")
     /* Use CTRL-c for interrupting the execution. */
     while (1);
-  else if (string (argv[1]) ==  "SIGTERM")
+  else if (std::string (argv[1]) ==  "SIGTERM")
     /* Use `kill pid` for interrupting the execution. */
     while (1);
   else

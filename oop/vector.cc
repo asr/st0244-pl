@@ -6,7 +6,11 @@
 
 #include <iostream>
 
-using namespace std;
+// using namespace std;
+
+using std::cin;
+using std::cout;
+using std::endl;
 
 // Using classes for defining a type we can separate the interface to
 // the type (public members) from its implementation/representation
@@ -23,7 +27,7 @@ public:
 
     // The size of the vector is an invariante
     if (s < 0)
-      throw length_error{"Vector constructor: negative size"};
+      throw std::length_error{"Vector constructor: negative size"};
 
     // The `new` operator allocates memory from the heap.
     elem = new double[s];
@@ -42,7 +46,7 @@ public:
     sz   = static_cast <int> (lst.size());
 
     // Copy from `lst` into `elem`.
-    copy(lst.begin(), lst.end(), elem);
+    std::copy(lst.begin(), lst.end(), elem);
   }
 
   // Destructor.
@@ -52,7 +56,7 @@ public:
   double& operator[] (int i) { return elem[i]; }
 
   // The function does not modify the caller object so we use the
-  // `const`.
+  // keyword `const`.
   int size() const { return sz; }
 };
 
