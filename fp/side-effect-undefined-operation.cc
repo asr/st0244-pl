@@ -4,10 +4,12 @@
 
 #include <iostream>
 
-using namespace std;
+// using namespace std;
 
-int
-main()
+using std::cout;
+using std::endl;
+
+int main()
 {
   int x = 1;
 

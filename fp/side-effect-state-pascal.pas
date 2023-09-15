@@ -1,4 +1,4 @@
-{ Tested with Free Pascal Compiler version .0.4+dfsg-23 [2019/11/25] for x86_64 }
+{ Tested with Free Pascal Compiler version 3.0.4+dfsg-23 [2019/11/25] for x86_64 }
 
 program P;
 
@@ -6,14 +6,14 @@ program P;
 var s : integer;
 
 { The function `f` changes the state, i.e. the global variable. }
-function f(a : integer ) : integer;
+function f(a : integer) : integer;
 begin
    s := 2;
    f := a;
 end;
 
 { The function `g` depends of the state, i.e. of the global variable. }
-function g(b : integer ) : integer;
+function g(b : integer) : integer;
 begin
    g := s + b;
 end;

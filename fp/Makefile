@@ -26,7 +26,7 @@ all : constexpr \
       fibonacci-dynamic \
       quickcheck-static \
       quickcheck-dynamic \
-      side-effect-state-c-plusplus \
+      side-effect-state-c-plus-plus \
       side-effect-state-pascal \
       side-effect-undefined-operation
 	ghc $(GHCFLAGS) AST.hs
@@ -37,6 +37,9 @@ all : constexpr \
 	ghc $(GHCFLAGS) Reverse.hs
 	ghc $(GHCFLAGS) Tuples.hs
 	$(MAKE) -C factorial
+
+side-effect-state-c-plus-plus : side-effect-state-c-plus-plus.cc
+	$(CXX) $(CXXFLAGS) -o $@ $<
 
 side-effect-state-pascal : side-effect-state-pascal.pas
 	fpc -vwnh -Sewnh $<
