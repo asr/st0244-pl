@@ -95,7 +95,7 @@ CXXFLAGS_AUX := -Wall -Wextra -Werror -std=c++23
 
     ```bash
     $ ghc --version
-    The Glorious Glasgow Haskell Compilation System, version 9.6.1
+    The Glorious Glasgow Haskell Compilation System, version 9.6.3
     ```
 
 * JCoCo and Java files were tested with
