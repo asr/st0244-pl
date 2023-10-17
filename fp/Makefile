@@ -24,9 +24,7 @@ GHCFLAGS := -Wall -Werror
 all : constexpr \
       fibonacci-static \
       fibonacci-dynamic \
-      quickcheck-static \
-      quickcheck-dynamic \
-      side-effect-state-c-plus-plus \
+      side-effect-state-c-plusplus \
       side-effect-state-pascal \
       side-effect-undefined-operation
 	ghc $(GHCFLAGS) AST.hs
@@ -52,12 +50,6 @@ fibonacci-static : Fibonacci.hs
 
 fibonacci-dynamic : Fibonacci.hs
 	ghc -dynamic -Wall -o fibonacci $<
-
-quickcheck-static : QuickCheck.hs
-	stack ghc --  $< $(GHCFLAGS) -o quickcheck
-
-quickcheck-dynamic : QuickCheck.hs
-	stack ghc -- $< -dynamic $(GHCFLAGS) -o quickcheck
 
 clean very-clean :
 	rm -f *.hi
