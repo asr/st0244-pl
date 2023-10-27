@@ -30,8 +30,8 @@ write (c : cs) = putChar c >> write cs
 
 -- Prints a string and a newline character after it. (Haskell function
 -- `putStrLn`).
-writeLn :: String -> IO()
-writeLn cs = write cs >> putChar '\n'
+writeln :: String -> IO()
+writeln cs = write cs >> putChar '\n'
 
 -- Read a fixed number of characters from the keyboard.
 readn :: Natural -> IO String
@@ -46,13 +46,13 @@ readn n = if n == 0
       r cs = return (c : cs)
 
 -- Read a line from the keyboard (Haskell function `getLine`).
-readLn1 :: IO String
-readLn1 = getChar >>= q
+readln :: IO String
+readln = getChar >>= q
   where
   q :: Char -> IO String
   q c = if c == '\n'
           then return []
-          else readLn1 >>= r
+          else readln >>= r
             where
             r :: String -> IO String
             r cs = return (c : cs)
