@@ -24,7 +24,7 @@ GHCFLAGS := -Wall -Werror
 all : constexpr \
       fibonacci-static \
       fibonacci-dynamic \
-      side-effect-state-c-plusplus \
+      side-effect-state-c-plus-plus \
       side-effect-state-pascal \
       side-effect-undefined-operation
 	ghc $(GHCFLAGS) AST.hs
