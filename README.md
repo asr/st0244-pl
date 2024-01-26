@@ -1,4 +1,4 @@
-## Source Code for the Course [ST0244 Programming Languages](http://www1.eafit.edu.co/asr/courses/st0244-programming-languages/index.html)
+## Source Code for the Course [ST0244 Programming Languages](http://www1.eafit.edu.co/asr/cursos/st0244-lenguajes-de-programacion/index.html)
 
 * You can clone this repository by running
 
