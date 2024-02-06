@@ -102,10 +102,10 @@ CXXFLAGS_AUX := -Wall -Wextra -Werror -std=c++23
 
     ```bash
     $ javac --version
-    javac 20.0.2
+    javac 21.0.1
 
     $ java --version
-    openjdk 20.0.2 2023-07-18
+    openjdk 21.0.1 2023-10-17
     ```
 
 * Prolog files were tested with
