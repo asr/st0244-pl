@@ -23,7 +23,6 @@ JAVAFLAGS := -Xlint -Werror
 
 all : BoxingUnboxing \
       CLI \
-      ToyAccountingSystem \
       cli \
       exceptions \
       function-overloading \
@@ -31,10 +30,11 @@ all : BoxingUnboxing \
       pointers-and-references \
       polymorphism \
       signal-handling \
-      toy-accounting-system \
       vector
 	$(MAKE) -C java-multiple-inheritance/interfaces
 	$(MAKE) -C java-multiple-inheritance/classes
+	$(MAKE) -C sistema-cuentas-bancarias/c-plusplus
+	ant -buildfile sistema-cuentas-bancarias/java/build.xml compile
 	$(MAKE) -C templates
 
 ##############################################################################
@@ -87,9 +87,6 @@ BoxingUnboxing : BoxingUnboxing.java
 Warning : Warning.java
 	javac -Xlint $<
 
-ToyAccountingSystem : ToyAccountingSystem.java
-	javac $(JAVAFLAGS) $<
-
 ##############################################################################
 
 clean very-clean :
@@ -97,4 +94,6 @@ clean very-clean :
 	rm -f *.class
 	$(MAKE) -C java-multiple-inheritance/interfaces very-clean
 	$(MAKE) -C java-multiple-inheritance/classes very-clean
+	$(MAKE) -C sistema-cuentas-bancarias/c-plusplus very-clean
+	ant -buildfile sistema-cuentas-bancarias/java/build.xml clean
 	$(MAKE) -C templates very-clean

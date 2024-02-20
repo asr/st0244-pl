@@ -1,0 +1,37 @@
+<!-- Tested with openjdk 21.0.1 and ant 1.10.12 -->
+
+<project>
+
+  <property name="src" value="src"/>
+
+  <property name="build"   value="build"/>
+  <property name="classes" value="${build}/classes"/>
+  <property name="jar"     value="${build}/jar"/>
+
+  <property name="main-class" value="Main"/>
+
+  <target name="clean">
+    <delete dir="${build}"/>
+  </target>
+
+  <target name="compile">
+    <mkdir dir="${classes}"/>
+    <javac srcdir="${src}" destdir="${classes}" includeantruntime="false">
+      <compilerarg value="-Xlint"/>
+      <compilerarg value="-Werror"/>
+   </javac>
+  </target>
+
+  <target name="jar" depends="compile">
+    <mkdir dir="${jar}"/>
+    <jar destfile="${jar}/Main.jar" basedir="${classes}">
+      <manifest>
+        <attribute name="Main-Class" value="${main-class}"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="run" depends="jar">
+    <java jar="${jar}/Main.jar" fork="true"/>
+    </target>
+</project>
