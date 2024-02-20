@@ -1,8 +1,8 @@
 
 # You can define "local" variables in the `../mk/config.mk` file which
 # is .gitignored.
-ifneq ($(wildcard ../mk/config.mk),)
-include ../mk/config.mk
+ifneq ($(wildcard ../../../mk/config.mk),)
+include ../../../mk/config.mk
 endif
 
 # We need the auxiliar variable `CXX_AUX` because `CXX` is predefined
