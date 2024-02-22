@@ -32,7 +32,7 @@ public class CuentaAhorros extends Cuenta {
   }
 
   // Borrar los intereses.
-  float borrarIntereses() {
+  public float borrarIntereses() {
 
     float interesesAnteriores = intereses;
     intereses = 0.0f;
