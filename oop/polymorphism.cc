@@ -15,7 +15,7 @@ public:
 
 class Cat : public Felid {
 public:
-  void meow() { cout << "Meowing like a regular cat! meow!\n"; }
+  void meow() { cout << "Meowing like a cat! meow!\n"; }
 };
 
 class Tiger : public Felid {
@@ -23,14 +23,9 @@ public:
   void meow() { cout << "Meowing like a tiger! MREOWWW!\n"; }
 };
 
-class Ocelot : public Felid {
-public:
-  void meow() { cout << "Meowing like an ocelot! mews!\n"; }
-};
-
 class OtherFelid : public Felid {};
 
-void do_meowing(Felid& felid)
+void doMeowing(Felid& felid)
 {
   felid.meow();
 }
@@ -39,11 +34,12 @@ int main()
 {
   Cat    cat;
   Tiger  tiger;
-  Ocelot ocelot;
+
+  // Error: cannot declare variable ‘otherFelid’ to be of abstract
+  // type ‘OtherFelid’
+  ///
   // OtherFelid otherFelid;
 
-  do_meowing(cat);
-  do_meowing(tiger);
-  do_meowing(ocelot);
-  // do_meowing(otherFelid);
+  doMeowing(cat);
+  doMeowing(tiger);
 }

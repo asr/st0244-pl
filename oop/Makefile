@@ -83,6 +83,9 @@ CLI : CLI.java
 BoxingUnboxing : BoxingUnboxing.java
 	javac $<
 
+Polymorphism : Polymorphism.java
+	javac $(JAVAFLAGS) $<
+
 # Generate a warning.
 Warning : Warning.java
 	javac -Xlint $<
