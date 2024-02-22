@@ -7,8 +7,9 @@ using std::cout;
 
 class Felid {
 public:
-  // Pure virtual function. Derived classes need to override/implement
-  // the function.
+  // Pure virtual function.
+  //
+  // Derived classes need to override/implement the function.
   virtual void meow() = 0;
 };
 
