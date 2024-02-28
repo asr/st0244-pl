@@ -22,8 +22,6 @@ JAVAFLAGS := -Xlint -Werror
 .DEFAULT_GOAL := all
 
 all : BoxingUnboxing \
-      CLI \
-      cli \
       exceptions \
       function-overloading \
       multiple-inheritance \
@@ -39,9 +37,6 @@ all : BoxingUnboxing \
 
 ##############################################################################
 # C++
-
-cli : cli.cc
-	$(CXX) $(CXXFLAGS) -o $@ $<
 
 exceptions : exceptions.cc
 	$(CXX) $(CXXFLAGS) -o $@ $<
@@ -75,9 +70,6 @@ warning : warning.cc
 
 ##############################################################################
 # Java
-
-CLI : CLI.java
-	javac $(JAVAFLAGS) $<
 
 # Generate a warning.
 BoxingUnboxing : BoxingUnboxing.java
