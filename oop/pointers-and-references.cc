@@ -37,7 +37,7 @@ void fn1()
 //////////////////////////////////////////////////////////////////////////////
 // Pointers
 //
-// A pointer variable is a variable that stores/points the address of
+// A pointer is a variable that stores/points the address of
 // another variable of the appropriate type.
 
 void fn2()
@@ -54,7 +54,6 @@ void fn2()
   //
   // Make figure in the whiteboard.
   p = &v[2];
-  cout << (void *) p << endl;
 
   // In expressions, a prefix unary `*` means "contents of". The
   // content of `p` is the third element of `v`.
@@ -72,15 +71,16 @@ void fn2()
   // as such. (from
   // https://stackoverflow.com/questions/17813423/cout-with-char-argument-prints-string-not-pointer-value)
 
-  // What is the ouput of `p + 10`?
+  // What is the ouput of `p + 1`?
   //
-  // cout << p + 4 << endl;
+  // cout << p + 1 << endl;
   //
   // Why?
 
-  // What is the ouput of `(void *) (p + 10)`?
+
+  // What is the ouput of `p + 4`?
   //
-  // cout << (void *) (p + 4) << endl;
+  // cout << p + 4 << endl;
   //
   // Why?
 }
@@ -88,12 +88,12 @@ void fn2()
 //////////////////////////////////////////////////////////////////////////////
 // References
 
-/*
-"A reference is similar to a pointer, except that you don’t need to
-use a prefix * to access the value referred to by the reference. Also,
-a reference cannot be made to refer to a different object after its
-initialization." (Stroustrup, 2019, p. 12)
-*/
+
+// "A reference is similar to a pointer, except that you don’t need to
+// use a prefix * to access the value referred to by the
+// reference. Also, a reference cannot be made to refer to a different
+// object after its initialization." (Stroustrup, 2019, p. 12)
+
 
 void fn3()
 {
@@ -118,7 +118,7 @@ void fn3()
 
   // Pointer arithmetic.
   // pi++;
-  // cout << (void *) pi << endl;
+  // cout << *pi << endl;
 
   // No reference arithmetic.
   // ri++;
