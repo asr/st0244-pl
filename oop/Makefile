@@ -22,6 +22,7 @@ JAVAFLAGS := -Xlint -Werror
 .DEFAULT_GOAL := all
 
 all : BoxingUnboxing \
+      MethodParameters \
       exceptions \
       function-overloading \
       multiple-inheritance \
@@ -74,6 +75,9 @@ warning : warning.cc
 # Generate a warning.
 BoxingUnboxing : BoxingUnboxing.java
 	javac $<
+
+MethodParameters : MethodParameters.java
+	javac $(JAVAFLAGS) $<
 
 Polymorphism : Polymorphism.java
 	javac $(JAVAFLAGS) $<
