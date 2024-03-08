@@ -23,6 +23,7 @@ JAVAFLAGS := -Xlint -Werror
 
 all : BoxingUnboxing \
       MethodParameters \
+      Polymorphism \
       exceptions \
       function-overloading \
       multiple-inheritance \
