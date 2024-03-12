@@ -31,8 +31,7 @@ all : BoxingUnboxing \
       polymorphism \
       signal-handling \
       vector
-	$(MAKE) -C java-multiple-inheritance/interfaces
-	$(MAKE) -C java-multiple-inheritance/classes
+	$(MAKE) -C java-multiple-inheritance/
 	$(MAKE) -C sistema-cuentas-bancarias/c-plusplus
 	ant -buildfile sistema-cuentas-bancarias/java/build.xml compile
 	$(MAKE) -C templates
@@ -92,8 +91,7 @@ Warning : Warning.java
 clean very-clean :
 	find . -type f -executable -delete
 	rm -f *.class
-	$(MAKE) -C java-multiple-inheritance/interfaces very-clean
-	$(MAKE) -C java-multiple-inheritance/classes very-clean
+	$(MAKE) -C java-multiple-inheritance/
 	$(MAKE) -C sistema-cuentas-bancarias/c-plusplus very-clean
 	ant -buildfile sistema-cuentas-bancarias/java/build.xml clean
 	$(MAKE) -C templates very-clean
