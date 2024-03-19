@@ -4,11 +4,6 @@
 
 #include <iostream>
 
-// using namespace std;
-
-using std::cout;
-using std::endl;
-
 int main()
 {
   int x = 1;
@@ -18,7 +13,7 @@ int main()
   // "operation on ‘x’ may be undefined [-Wsequence-point]"
   //
   // The program prints `1,2`.
-  cout << x++ << "," << x << endl;
+  std::cout << x++ << "," << x << std::endl;
 
   return 0;
 }

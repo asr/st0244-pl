@@ -1,11 +1,6 @@
 
 #include <iostream>
 
-// using namespace std;
-
-using std::cout;
-using std::endl;
-
 // State (global variable)
 int s = 0;
 
@@ -25,8 +20,8 @@ int g(int b)
 int main()
 {
   // The expressions `f(3) + g(4)` and `g(4) + f(3)` are not equals.
-  cout << g(4) + f(3) << endl;
-  cout << f(3) + g(4) << endl;
+  std::cout << g(4) + f(3) << std::endl;
+  std::cout << f(3) + g(4) << std::endl;
 
   return 0;
 }
