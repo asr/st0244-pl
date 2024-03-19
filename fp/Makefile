@@ -24,7 +24,7 @@ GHCFLAGS := -Wall -Werror
 all : constexpr \
       fibonacci-static \
       fibonacci-dynamic \
-      side-effect-state-c-plus-plus \
+      side-effect-state-c-plusplus \
       side-effect-state-pascal \
       side-effect-undefined-operation
 	ghc $(GHCFLAGS) AST.hs
@@ -36,7 +36,7 @@ all : constexpr \
 	ghc $(GHCFLAGS) Tuples.hs
 	$(MAKE) -C factorial
 
-side-effect-state-c-plus-plus : side-effect-state-c-plus-plus.cc
+side-effect-state-c-plusplus : side-effect-state-c-plusplus.cc
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
 side-effect-state-pascal : side-effect-state-pascal.pas
