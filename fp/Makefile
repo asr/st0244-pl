@@ -22,8 +22,6 @@ GHCFLAGS := -Wall -Werror
 .DEFAULT_GOAL := all
 
 all : constexpr \
-      fibonacci-static \
-      fibonacci-dynamic \
       side-effect-state-c-plusplus \
       side-effect-state-pascal \
       side-effect-undefined-operation
@@ -34,6 +32,7 @@ all : constexpr \
 	ghc $(GHCFLAGS) LetWhere.hs
 	ghc $(GHCFLAGS) Reverse.hs
 	ghc $(GHCFLAGS) Tuples.hs
+	$(MAKE) -C acummulator-pattern/fibonacci
 	$(MAKE) -C tail-recursion/factorial
 
 side-effect-state-c-plusplus : side-effect-state-c-plusplus.cc
@@ -44,12 +43,6 @@ side-effect-state-pascal : side-effect-state-pascal.pas
 
 side-effect-undefined-operation : side-effect-undefined-operation.cc
 	$(CXX) -o $@ $<
-
-fibonacci-static : Fibonacci.hs
-	ghc -Wall -o fibonacci $<
-
-fibonacci-dynamic : Fibonacci.hs
-	ghc -dynamic -Wall -o fibonacci $<
 
 clean very-clean :
 	rm -f *.hi
