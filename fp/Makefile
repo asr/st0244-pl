@@ -34,7 +34,7 @@ all : constexpr \
 	ghc $(GHCFLAGS) LetWhere.hs
 	ghc $(GHCFLAGS) Reverse.hs
 	ghc $(GHCFLAGS) Tuples.hs
-	$(MAKE) -C factorial
+	$(MAKE) -C tail-recursion/factorial
 
 side-effect-state-c-plusplus : side-effect-state-c-plusplus.cc
 	$(CXX) $(CXXFLAGS) -o $@ $<
