@@ -1,4 +1,3 @@
-{ Tested with Free Pascal Compiler version 3.0.4+dfsg-23 [2019/11/25] for x86_64 }
 
 program P;
 

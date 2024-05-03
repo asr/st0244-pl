@@ -108,6 +108,13 @@ CXXFLAGS_AUX := -Wall -Wextra -Werror -std=c++23
     openjdk 21.0.1 2023-10-17
     ```
 
+* Pascal files were tested with Free Pascal Compiler
+
+    ```bash
+    $ fpc -iV
+    3.2.2
+    ```
+
 * Prolog files were tested with
 
     ```bash
