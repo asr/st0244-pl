@@ -14,9 +14,9 @@ append([H | T1], L2, [H | T3]) :- append(T1, L2, T3).
 
 % Reverse of a list using append.
 reverse([], []).
-reverse([ H | T ], L) :- reverse(T, RT), append(RT, [H], L).
+reverse([ H | T ], R) :- reverse(T, RT), append(RT, [H], R).
 
 % Reverse of a list using the accumulator pattern.
 rev([], Acc, Acc).
-rev([ H | T ], Acc, L) :- rev(T, [ H | Acc ], L).
+rev([ H | T ], Acc, R) :- rev(T, [ H | Acc ], R).
 reverseAP(L,R) :- rev(L, [], R).
