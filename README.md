@@ -87,8 +87,8 @@ CXXFLAGS_AUX := -Wall -Wextra -Werror -std=c++23
 * C++ files were tested with
 
     ```bash
-    $ g++-12 --version
-    g++-12 (Ubuntu 12.1.0-2ubuntu1~22.04) 12.1.0
+    $ g++-13 --version
+    g++-13 (Ubuntu 13.1.0-8ubuntu1~22.04) 13.1.0
     ```
 
 * Haskell files were tested with
