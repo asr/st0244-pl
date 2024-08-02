@@ -27,6 +27,9 @@ python : $(file).py
 prolog : $(file).pl
 	swipl $<
 
+scheme : $(file).scm
+	mit-scheme --quiet < $<
+
 sml : $(file).sml
 	mlton $<
 

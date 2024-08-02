@@ -129,6 +129,13 @@ CXXFLAGS_AUX := -Wall -Wextra -Werror -std=c++23
     Python 3.2.6
     ```
 
+* Scheme files were tested with
+
+    ```bash
+    $ mit-scheme --version
+    MIT/GNU Scheme 12.1
+    ```
+
 * Standard ML files were tested with
 
     ```bash
