@@ -21,10 +21,7 @@ GHCFLAGS := -Wall -Werror
 
 .DEFAULT_GOAL := all
 
-all : constexpr \
-      side-effect-state-c-plusplus \
-      side-effect-state-pascal \
-      side-effect-undefined-operation
+all : constexpr
 	ghc $(GHCFLAGS) AST.hs
 	ghc $(GHCFLAGS) CPS.hs
 	ghc $(GHCFLAGS) IO.hs
@@ -33,16 +30,8 @@ all : constexpr \
 	ghc $(GHCFLAGS) Reverse.hs
 	ghc $(GHCFLAGS) Tuples.hs
 	$(MAKE) -C acummulator-pattern/fibonacci
+	$(MAKE) -C side-effects
 	$(MAKE) -C tail-recursion/factorial/haskell
-
-side-effect-state-c-plusplus : side-effect-state-c-plusplus.cc
-	$(CXX) $(CXXFLAGS) -o $@ $<
-
-side-effect-state-pascal : side-effect-state-pascal.pas
-	fpc -vwnh -Sewnh $<
-
-side-effect-undefined-operation : side-effect-undefined-operation.cc
-	$(CXX) -o $@ $<
 
 clean very-clean :
 	rm -f *.hi
