@@ -33,7 +33,7 @@ all : constexpr \
 	ghc $(GHCFLAGS) Reverse.hs
 	ghc $(GHCFLAGS) Tuples.hs
 	$(MAKE) -C acummulator-pattern/fibonacci
-	$(MAKE) -C tail-recursion/factorial
+	$(MAKE) -C tail-recursion/factorial/haskell
 
 side-effect-state-c-plusplus : side-effect-state-c-plusplus.cc
 	$(CXX) $(CXXFLAGS) -o $@ $<
