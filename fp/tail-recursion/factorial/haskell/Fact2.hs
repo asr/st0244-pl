@@ -5,7 +5,7 @@ module Main ( main ) where
 
 import Numeric.Natural ( Natural )
 
--- Non-tail recursive version and bang patterns.
+-- Non-tail recursive but bang patterns.
 fact :: Natural -> Natural
 fact 0  = 1
 fact !n = n * fact (n - 1)

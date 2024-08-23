@@ -3,7 +3,7 @@ module Main ( main ) where
 
 import Numeric.Natural ( Natural )
 
--- Tail recursive version.
+-- Tail recursive but not bang patterns.
 fact :: Natural -> Natural
 fact n = go n 1
   where
