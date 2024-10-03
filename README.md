@@ -79,6 +79,13 @@ CXXFLAGS_AUX := -Wall -Wextra -Werror -std=c++23
     MIT/GNU Scheme 12.1
     ```
 
+* Smalltalk files were tested with
+
+    ```bash
+    $ gst --version
+    GNU Smalltalk version 3.2.5
+    ```
+
 * Standard ML files were tested with
 
     ```bash

@@ -17,7 +17,7 @@ ifdef CXXFLAGS_AUX
 CXXFLAGS := $(CXXFLAGS_AUX)
 endif
 
-scb : scb.cc
+tas : tas.cc
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
 clean very-clean :

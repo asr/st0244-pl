@@ -32,8 +32,9 @@ all : BoxingUnboxing \
       signal-handling \
       vector
 	$(MAKE) -C java-multiple-inheritance/
-	$(MAKE) -C sistema-cuentas-bancarias/c-plusplus
-	ant -buildfile sistema-cuentas-bancarias/java/build.xml compile
+	$(MAKE) -C toy-accounting-system/c-plusplus
+	ant -buildfile toy-accounting-system/java/build.xml compile
+	gst toy-accounting-system/smalltalk/tas.st
 	$(MAKE) -C templates
 
 ##############################################################################

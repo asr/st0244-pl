@@ -4,7 +4,7 @@ CXXFLAGS := $(CFLAGS)
 
 file := hello-world
 
-all : asm c c-plus-plus java python prolog sml
+all : asm c c-plus-plus java python prolog scheme sml
 
 asm : $(file).asm
 	nasm -f elf $<
@@ -29,6 +29,9 @@ prolog : $(file).pl
 
 scheme : $(file).scm
 	mit-scheme --quiet < $<
+
+smalltalk : $(file).st
+	gst $<
 
 sml : $(file).sml
 	mlton $<
