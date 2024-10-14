@@ -34,6 +34,7 @@ all : BoxingUnboxing \
 	$(MAKE) -C java-multiple-inheritance/
 	$(MAKE) -C toy-accounting-system/c-plusplus
 	ant -buildfile toy-accounting-system/java/build.xml compile
+	gst complex-numbers/smalltalk/Complex.st
 	gst toy-accounting-system/smalltalk/tas.st
 	$(MAKE) -C templates
 
