@@ -22,6 +22,7 @@ JAVAFLAGS := -Xlint -Werror
 .DEFAULT_GOAL := all
 
 all : BoxingUnboxing \
+      ComplexNumbers \
       MethodParameters \
       Polymorphism \
       exceptions \
@@ -87,6 +88,10 @@ Polymorphism : Polymorphism.java
 # Generate a warning.
 Warning : Warning.java
 	javac -Xlint $<
+
+ComplexNumbers : complex-numbers/java/Complex.java \
+                 complex-numbers/java/TestComplex.java
+	javac $^
 
 ##############################################################################
 

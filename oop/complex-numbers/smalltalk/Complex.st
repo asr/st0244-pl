@@ -1,3 +1,7 @@
+" Adapted from: "
+" Kenneth C. Louden y Kenneth A. Lambert (2011). Programming "
+" Languages. Principles and Practice. 3rd ed. Cengage Learning. "
+
 "For using with gst:"
 
 " $ gst "
