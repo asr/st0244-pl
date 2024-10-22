@@ -2,8 +2,8 @@
 // Kenneth C. Louden y Kenneth A. Lambert (2011). Programming
 // Languages. Principles and Practice. 3rd ed. Cengage Learning.
 
-public class TestComplex{
-  static public void main(String[] args){
+public class TestComplex {
+  public static void main(String[] args) {
     Complex c1 = new Complex(3.5, 4.6);
     Complex c2 = new Complex(2.0, 2.0);
 
