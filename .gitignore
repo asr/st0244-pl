@@ -7,7 +7,6 @@ build/
 mk/config.mk
 oop/classes/vector1
 oop/classes/vector2
-oop/cli
 oop/exceptions
 oop/function-overloading
 oop/multiple-inheritance
