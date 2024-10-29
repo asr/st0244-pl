@@ -1,4 +1,4 @@
 
 public interface InterfaceA {
-  public void doSomething();
+  public void foo();
 }
