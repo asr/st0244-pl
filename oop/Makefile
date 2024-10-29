@@ -33,7 +33,7 @@ all : BoxingUnboxing \
       polymorphism \
       signal-handling \
       vector
-	$(MAKE) -C java-multiple-inheritance/
+	$(MAKE) -C multiple-inheritance/java
 	$(MAKE) -C toy-accounting-system/c-plusplus
 	ant -buildfile toy-accounting-system/java/build.xml compile
 	gst complex-numbers/smalltalk/Complex.st
@@ -49,7 +49,7 @@ exceptions : exceptions.cc
 function-overloading : function-overloading.cc
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
-multiple-inheritance : multiple-inheritance.cc
+multiple-inheritance: multiple-inheritance.cc
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
 pointers-and-references : pointers-and-references.cc
@@ -101,7 +101,7 @@ Warning : Warning.java
 clean very-clean :
 	find . -type f -executable -delete
 	rm -f *.class
-	$(MAKE) -C java-multiple-inheritance/
-	$(MAKE) -C sistema-cuentas-bancarias/c-plusplus very-clean
-	ant -buildfile sistema-cuentas-bancarias/java/build.xml clean
+	$(MAKE) -C multiple-inheritance/java very-clean
+	$(MAKE) -C toy-accounting-system/c-plusplus very-clean
+	ant -buildfile toy-accounting-system/java/build.xml clean
 	$(MAKE) -C templates very-clean
