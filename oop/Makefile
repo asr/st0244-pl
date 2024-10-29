@@ -102,6 +102,6 @@ clean very-clean :
 	find . -type f -executable -delete
 	rm -f *.class
 	$(MAKE) -C java-multiple-inheritance/
-	$(MAKE) -C sistema-cuentas-bancarias/c-plusplus very-clean
-	ant -buildfile sistema-cuentas-bancarias/java/build.xml clean
+	$(MAKE) -C toy-accounting-system/c-plusplus very-clean
+	ant -buildfile toy-accounting-system/java/build.xml clean
 	$(MAKE) -C templates very-clean
