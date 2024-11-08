@@ -92,6 +92,9 @@ MethodParameters : MethodParameters.java
 Polymorphism : Polymorphism.java
 	javac $(JAVAFLAGS) $<
 
+Streams : streams/TestStream.java
+	javac $(JAVAFLAGS) $<
+
 # Generate a warning.
 Warning : Warning.java
 	javac -Xlint $<
