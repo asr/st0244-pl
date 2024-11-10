@@ -2,7 +2,7 @@
 import java.util.*;
 import java.util.stream.*;
 
-public class TestStream {
+public class StreamExamples {
   static public void main(String[] args){
 
     //////////////////////////////////////////////////////////////////////////

@@ -26,6 +26,7 @@ all : BoxingUnboxing \
       ComplexNumbers \
       MethodParameters \
       Polymorphism \
+      Streams \
       exceptions \
       function-overloading \
       multiple-inheritance \
@@ -92,7 +93,7 @@ MethodParameters : MethodParameters.java
 Polymorphism : Polymorphism.java
 	javac $(JAVAFLAGS) $<
 
-Streams : streams/TestStream.java
+Streams : streams/StreamExamples.java
 	javac $(JAVAFLAGS) $<
 
 # Generate a warning.
